@@ -207,7 +207,7 @@ export default function Home() {
       </section>
 
       {/* Promo Banner */}
-      <section className="bg-accent text-accent-foreground py-8 md:py-12 overflow-hidden">
+      <section className="bg-accent text-accent-foreground py-6 sm:py-8 md:py-12 overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -215,18 +215,18 @@ export default function Home() {
           className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <div className="flex flex-col items-center justify-center gap-2">
-            <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 flex-wrap">
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-                className="text-2xl"
+                className="text-xl sm:text-2xl"
               >
                 ☎️
               </motion.span>
               <motion.div
                 animate={{ x: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                className="text-xl md:text-2xl font-bold"
+                className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-center"
               >
                 Seniors & First-Time Customers Get 10% OFF
               </motion.div>
@@ -234,7 +234,7 @@ export default function Home() {
             <motion.p
               animate={{ opacity: [1, 0.7, 1] }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-              className="text-lg opacity-90"
+              className="text-xs sm:text-sm md:text-base opacity-90"
             >
               Call today to claim your exclusive discount!
             </motion.p>
