@@ -375,9 +375,9 @@ export default function Home() {
       </section>
 
       {/* Trust Badges */}
-      <section className="bg-primary/5 py-12 md:py-16">
+      <section className="bg-primary/5 py-8 sm:py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               { emoji: "👴", text: "Seniors Welcome" },
               { emoji: "🔒", text: "Fully Insured" },
@@ -390,8 +390,8 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl mb-3">{badge.emoji}</div>
-                <p className="font-semibold text-foreground">{badge.text}</p>
+                <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">{badge.emoji}</div>
+                <p className="font-semibold text-sm sm:text-base text-foreground">{badge.text}</p>
               </motion.div>
             ))}
           </div>
