@@ -245,7 +245,12 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <ServiceCard key={index} {...service} index={index} />
+              <ServiceCard
+                key={index}
+                {...service}
+                index={index}
+                onLearnMore={() => handleLearnMore(service)}
+              />
             ))}
           </div>
         </div>
