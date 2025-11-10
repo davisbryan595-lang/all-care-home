@@ -98,9 +98,15 @@ export function Navbar() {
               {isDark ? <Sun className="w-5 h-5 text-accent" /> : <Moon className="w-5 h-5 text-primary" />}
             </button>
 
-            <Button asChild className="hidden sm:flex bg-primary hover:bg-primary/90">
-              <Link href="/contact">Book Now</Link>
-            </Button>
+            <button
+              onClick={() => {
+                const element = document.querySelector("#contact")
+                if (element) element.scrollIntoView({ behavior: "smooth" })
+              }}
+              className="hidden sm:flex px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-md transition-colors font-medium"
+            >
+              Book Now
+            </button>
 
             {/* Mobile Menu Button */}
             <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2">
