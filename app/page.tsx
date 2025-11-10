@@ -207,24 +207,38 @@ export default function Home() {
       </section>
 
       {/* Promo Banner */}
-      <section className="bg-accent text-accent-foreground py-8 md:py-12">
+      <section className="bg-accent text-accent-foreground py-8 md:py-12 overflow-hidden">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <motion.span
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
-              className="text-2xl"
+          <div className="flex flex-col items-center justify-center gap-2">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <motion.span
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY }}
+                className="text-2xl"
+              >
+                ☎️
+              </motion.span>
+              <motion.div
+                animate={{ x: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                className="text-xl md:text-2xl font-bold"
+              >
+                Seniors & First-Time Customers Get 10% OFF
+              </motion.div>
+            </div>
+            <motion.p
+              animate={{ opacity: [1, 0.7, 1] }}
+              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+              className="text-lg opacity-90"
             >
-              ☎️
-            </motion.span>
-            <p className="text-xl md:text-2xl font-bold">Seniors & First-Time Customers Get 10% OFF</p>
+              Call today to claim your exclusive discount!
+            </motion.p>
           </div>
-          <p className="text-lg opacity-90">Call today to claim your exclusive discount!</p>
         </motion.div>
       </section>
 
