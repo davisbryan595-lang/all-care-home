@@ -67,10 +67,12 @@ export function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <img
+            <motion.img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/allcare-removebg-preview-CfJ6ygShMze9rFwxbQlSwCUOQtqdvi.png"
               alt="All Care Home Repair"
-              className="h-10 w-auto"
+              className="h-20 w-auto filter drop-shadow-[0_0_12px_rgba(59,130,246,0.6)]"
+              animate={{ y: [-8, 8] }}
+              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
             />
             <span className="font-bold text-xl text-primary hidden sm:inline-block group-hover:text-accent transition-colors">
               ALL CARE
