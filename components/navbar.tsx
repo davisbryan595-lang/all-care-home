@@ -81,13 +81,14 @@ export function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
-              <Link
+              <a
                 key={index}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-foreground hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
 
