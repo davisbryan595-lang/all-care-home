@@ -8,10 +8,18 @@ import { AnimatedCounter } from "@/components/animated-counter"
 import { ServiceCard } from "@/components/service-card"
 import { Carousel } from "@/components/carousel"
 import { Gallery } from "@/components/gallery"
-import { Button } from "@/components/ui/button"
+import { ServiceModal } from "@/components/service-modal"
 import { Phone, Mail, MapPin, Clock, Heart, Award, Users, Shield, Check } from "lucide-react"
 import { useState } from "react"
 import type React from "react"
+
+interface Service {
+  icon: string
+  title: string
+  description: string
+  image: string
+  details?: string[]
+}
 
 const services = [
   {
