@@ -143,7 +143,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="relative overflow-hidden">
-        <div className="h-96 md:h-[600px] lg:h-[700px]">
+        <div className="h-80 sm:h-96 md:h-[600px] lg:h-[700px]">
           <Carousel items={heroCarouselItems} autoPlay autoPlayInterval={5000} />
         </div>
 
@@ -153,21 +153,21 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-center text-white max-w-3xl mx-auto px-4"
+            className="text-center text-white max-w-3xl mx-auto px-3 sm:px-4"
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-balance">RELIABLE LOCAL AFFORDABLE</h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-100">Need a hand around the house?</p>
-            <p className="text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-balance leading-tight">RELIABLE LOCAL AFFORDABLE</h1>
+            <p className="text-base sm:text-lg md:text-2xl mb-4 sm:mb-6 text-gray-100">Need a hand around the house?</p>
+            <p className="text-xs sm:text-sm md:text-base mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto line-clamp-4 sm:line-clamp-none">
               With over 15 years of experience, All Care Home Repair provides trusted, affordable home maintenance and
               repair services to homeowners and seniors across Cochrane, Ontario.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col gap-3 sm:gap-4">
               <button
                 onClick={() => {
                   const element = document.querySelector("#services")
                   if (element) element.scrollIntoView({ behavior: "smooth" })
                 }}
-                className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-semibold text-lg"
+                className="w-full px-6 sm:px-8 py-2.5 sm:py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-semibold text-sm sm:text-base md:text-lg"
               >
                 View Services
               </button>
@@ -176,7 +176,7 @@ export default function Home() {
                   const element = document.querySelector("#contact")
                   if (element) element.scrollIntoView({ behavior: "smooth" })
                 }}
-                className="px-8 py-3 border-2 border-white text-white hover:bg-white/20 bg-transparent rounded-lg transition-colors font-semibold text-lg"
+                className="w-full px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-white text-white hover:bg-white/20 bg-transparent rounded-lg transition-colors font-semibold text-sm sm:text-base md:text-lg"
               >
                 Get Quote
               </button>
