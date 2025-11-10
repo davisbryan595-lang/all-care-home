@@ -274,27 +274,27 @@ export default function Home() {
       <Gallery />
 
       {/* About Section */}
-      <section id="about" className="py-16 md:py-24 bg-background">
+      <section id="about" className="py-8 sm:py-16 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           >
-            <h2 className="text-4xl font-bold text-foreground mb-6">Our Story</h2>
-            <div className="space-y-4">
-              <p className="text-lg text-foreground/70 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">Our Story</h2>
+            <div className="space-y-3 sm:space-y-4">
+              <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
                 All Care Home Repair was founded on a simple principle: homeowners deserve honest, reliable service at
                 fair prices. Whether you're a busy professional, a senior looking for trustworthy help, or anyone in
                 between, we're here to take the stress out of home repairs.
               </p>
-              <p className="text-lg text-foreground/70 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
                 With over 15 years of hands-on experience, our team has completed thousands of repairs across Cochrane
                 and the surrounding areas. We believe that quality craftsmanship, respect for your home, and genuine
                 care are the foundations of a great service business.
               </p>
-              <p className="text-lg text-foreground/70 leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
                 Today, we're proud to serve families, seniors, and businesses who value reliability and fair pricing.
                 And we're still growing, thanks to customers like you.
               </p>
