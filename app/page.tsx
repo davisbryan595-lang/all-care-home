@@ -23,7 +23,7 @@ interface Service {
 
 const services = [
   {
-    icon: "����",
+    icon: "🔨",
     title: "Small Carpentry Repairs",
     description: "Expert door, trim, and shelving repairs",
     image: "https://images.pexels.com/photos/6473973/pexels-photo-6473973.jpeg",
@@ -475,7 +475,7 @@ export default function Home() {
                   const element = document.querySelector("#contact")
                   if (element) element.scrollIntoView({ behavior: "smooth" })
                 }}
-                className="px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold text-lg"
+                className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold text-sm sm:text-base md:text-lg"
               >
                 Book Your 2-Hour Slot
               </button>
@@ -487,16 +487,16 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mt-16 text-center"
+            className="mt-10 sm:mt-16 text-center"
           >
-            <h3 className="text-3xl font-bold mb-4 text-foreground">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-foreground">
               Seniors Save <span className="text-accent">$10-$20</span> Per Hour
             </h3>
-            <p className="text-lg text-foreground/70 mb-8">
+            <p className="text-xs sm:text-sm md:text-lg text-foreground/70 mb-6 sm:mb-8 px-2">
               With our senior discount, a 2-hour job costs just $80-$90 instead of $100
             </p>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               <AnimatedCounter target={15} label="Seniors Served This Month" suffix="+" />
               <AnimatedCounter target={20} label="Average Savings Per Job" suffix="%" />
               <AnimatedCounter target={100} label="Satisfaction Rate" suffix="%" />
