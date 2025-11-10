@@ -124,18 +124,28 @@ export function Navbar() {
             className="md:hidden bg-background/95 backdrop-blur-md rounded-b-lg p-4 space-y-2"
           >
             {navItems.map((item, index) => (
-              <Link
+              <a
                 key={index}
                 href={item.href}
-                className="block px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  handleNavClick(e, item.href)
+                  setIsOpen(false)
+                }}
+                className="block px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
-            <Button asChild className="w-full bg-primary hover:bg-primary/90">
-              <Link href="/contact">Book Now</Link>
-            </Button>
+            <button
+              onClick={() => {
+                const element = document.querySelector("#contact")
+                if (element) element.scrollIntoView({ behavior: "smooth" })
+                setIsOpen(false)
+              }}
+              className="w-full px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors font-medium"
+            >
+              Book Now
+            </button>
           </motion.div>
         )}
       </div>
