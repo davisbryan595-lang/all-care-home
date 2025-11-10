@@ -339,11 +339,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mt-16"
+            className="mt-10 sm:mt-16"
           >
-            <h3 className="text-3xl font-bold text-foreground mb-8 text-center">Our Values</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center">Our Values</h3>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {[
                 {
                   title: "Honesty",
