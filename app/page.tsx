@@ -122,8 +122,10 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="home" className="pt-20 pb-12 md:pt-32 md:pb-20 relative overflow-hidden">
-        <Carousel items={heroCarouselItems} autoPlay autoPlayInterval={5000} />
+      <section id="home" className="relative overflow-hidden">
+        <div className="h-96 md:h-[600px] lg:h-[700px]">
+          <Carousel items={heroCarouselItems} autoPlay autoPlayInterval={5000} />
+        </div>
 
         {/* Overlay Content */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
