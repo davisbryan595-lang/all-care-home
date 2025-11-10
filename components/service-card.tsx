@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 
 interface ServiceCardProps {
   icon: string
@@ -10,9 +9,10 @@ interface ServiceCardProps {
   image: string
   details?: string[]
   index?: number
+  onLearnMore?: () => void
 }
 
-export function ServiceCard({ icon, title, description, image, details, index = 0 }: ServiceCardProps) {
+export function ServiceCard({ icon, title, description, image, details, index = 0, onLearnMore }: ServiceCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,12 @@ export function ServiceCard({ icon, title, description, image, details, index = 
           </ul>
         )}
 
-        <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">Learn More</Button>
+        <button
+          onClick={onLearnMore}
+          className="w-full px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-md transition-colors font-medium"
+        >
+          Learn More
+        </button>
       </div>
     </motion.div>
   )
