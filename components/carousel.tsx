@@ -33,7 +33,7 @@ export function Carousel({ items, autoPlay = true, autoPlayInterval = 5000 }: Ca
   const next = () => setCurrent((prev) => (prev + 1) % items.length)
 
   return (
-    <div className="relative w-full h-96 md:h-[500px] rounded-lg overflow-hidden group">
+    <div className="relative w-full h-screen overflow-hidden group">
       {items.map((item, idx) => (
         <div
           key={item.id}
