@@ -23,7 +23,7 @@ interface Service {
 
 const services = [
   {
-    icon: "🔨",
+    icon: "����",
     title: "Small Carpentry Repairs",
     description: "Expert door, trim, and shelving repairs",
     image: "https://images.pexels.com/photos/6473973/pexels-photo-6473973.jpeg",
@@ -426,8 +426,8 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
               <div>
-                <h4 className="text-xl font-bold text-foreground mb-4">What's Included</h4>
-                <ul className="space-y-3">
+                <h4 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-3 sm:mb-4">What's Included</h4>
+                <ul className="space-y-2 sm:space-y-3">
                   {[
                     "Professional expertise",
                     "All basic tools & materials",
@@ -436,17 +436,17 @@ export default function Home() {
                     "Friendly, reliable service",
                     "Background-checked technician",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3">
-                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-foreground">{item}</span>
+                    <li key={idx} className="flex items-center gap-2 sm:gap-3">
+                      <Check className="w-4 sm:w-5 h-4 sm:h-5 text-primary flex-shrink-0" />
+                      <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <h4 className="text-xl font-bold text-foreground mb-4">Special Discounts</h4>
-                <ul className="space-y-3">
+                <h4 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-3 sm:mb-4">Special Discounts</h4>
+                <ul className="space-y-2 sm:space-y-3">
                   {[
                     "10% discount for seniors (65+)",
                     "10% discount for first-time customers",
@@ -455,9 +455,9 @@ export default function Home() {
                     "Seasonal service packages",
                     "Loyalty rewards program",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3">
-                      <span className="text-accent text-xl">⭐</span>
-                      <span className="text-foreground">{item}</span>
+                    <li key={idx} className="flex items-center gap-2 sm:gap-3">
+                      <span className="text-accent text-lg sm:text-xl flex-shrink-0">⭐</span>
+                      <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
