@@ -399,13 +399,13 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-16 md:py-24 bg-background">
+      <section id="pricing" className="py-8 sm:py-16 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl font-bold text-center text-foreground mb-12"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-8 sm:mb-12"
           >
             Transparent & Affordable
           </motion.h2>
@@ -414,17 +414,17 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="bg-card border-2 border-accent rounded-lg p-8 md:p-12 shadow-lg"
+            className="bg-card border-2 border-accent rounded-lg p-6 sm:p-8 md:p-12 shadow-lg"
           >
-            <div className="text-center mb-12">
-              <h3 className="text-5xl font-bold text-foreground mb-3">
+            <div className="text-center mb-8 sm:mb-12">
+              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 sm:mb-3">
                 Only <span className="text-primary">$50</span>/hour
               </h3>
-              <p className="text-2xl text-accent font-semibold mb-4">2-hour minimum</p>
-              <p className="text-foreground/70 text-lg">Professional service at fair market rates</p>
+              <p className="text-lg sm:text-xl md:text-2xl text-accent font-semibold mb-3 sm:mb-4">2-hour minimum</p>
+              <p className="text-sm sm:text-base md:text-lg text-foreground/70">Professional service at fair market rates</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
               <div>
                 <h4 className="text-xl font-bold text-foreground mb-4">What's Included</h4>
                 <ul className="space-y-3">
