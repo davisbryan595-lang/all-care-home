@@ -85,6 +85,9 @@ const heroCarouselItems = [
 ]
 
 export default function Home() {
+  const [selectedService, setSelectedService] = useState<Service | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -97,6 +100,15 @@ export default function Home() {
 
   const [submitted, setSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+
+  const handleLearnMore = (service: Service) => {
+    setSelectedService(service)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
