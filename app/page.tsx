@@ -306,10 +306,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mt-16"
+            className="mt-10 sm:mt-16"
           >
-            <h3 className="text-3xl font-bold text-foreground mb-8">Why Choose Us</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">Why Choose Us</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {[
                 { icon: Award, title: "15+ Years Experience", desc: "Proven track record of quality work" },
                 { icon: Users, title: "Local & Dependable", desc: "Serving Cochrane families since 2010" },
