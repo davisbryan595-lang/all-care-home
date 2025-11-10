@@ -778,6 +778,13 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Service Modal */}
+      <ServiceModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        service={selectedService || undefined}
+      />
+
       <Footer />
     </>
   )
