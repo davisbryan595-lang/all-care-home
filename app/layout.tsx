@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   title: "All Care Home Repair | Handyman Services in Cochrane, Ontario",
   description:
     "Trusted handyman services in Cochrane, Ontario. $50/hour, senior-friendly, no job too small. 15+ years experience.",
-  generator: "v0.app",
   icons: {
     icon: [
       {
