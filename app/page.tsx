@@ -737,13 +737,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
               >
-                <label className="block text-sm font-medium text-foreground mb-2">Additional Details</label>
+                <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Additional Details</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors resize-none"
-                  rows={5}
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors resize-none text-sm sm:text-base"
+                  rows={4}
                   placeholder="Tell us about your project or any special requirements..."
                 />
               </motion.div>
@@ -756,13 +756,13 @@ export default function Home() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 text-lg font-semibold rounded-lg transition-colors disabled:opacity-50"
+                  className="w-full px-6 py-2.5 sm:py-3 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base md:text-lg font-semibold rounded-lg transition-colors disabled:opacity-50"
                 >
                   {isLoading ? "Sending..." : "Get Your Free Quote"}
                 </button>
               </motion.div>
 
-              <p className="text-center text-sm text-foreground/70">
+              <p className="text-center text-xs sm:text-sm text-foreground/70">
                 We'll respond to your inquiry within 2 hours during business hours
               </p>
             </form>
