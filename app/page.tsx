@@ -646,14 +646,14 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  <label className="block text-sm font-medium text-foreground mb-2">Full Name *</label>
+                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Full Name *</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </motion.div>
@@ -663,14 +663,14 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  <label className="block text-sm font-medium text-foreground mb-2">Phone *</label>
+                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Phone *</label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                     placeholder="(403) 555-1234"
                   />
                 </motion.div>
