@@ -70,17 +70,14 @@ const heroCarouselItems = [
   {
     id: "1",
     image: "https://images.pexels.com/photos/6473973/pexels-photo-6473973.jpeg",
-    title: "Expert Home Repairs",
   },
   {
     id: "2",
     image: "https://images.pexels.com/photos/6474300/pexels-photo-6474300.jpeg",
-    title: "Quality Painting & Drywall",
   },
   {
     id: "3",
     image: "https://images.pexels.com/photos/5217124/pexels-photo-5217124.jpeg",
-    title: "Furniture Assembly & More",
   },
 ]
 
