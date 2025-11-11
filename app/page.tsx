@@ -681,30 +681,30 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
               >
-                <label className="block text-sm font-medium text-foreground mb-2">Email *</label>
+                <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Email *</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                   placeholder="your@email.com"
                 />
               </motion.div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <motion.div
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <label className="block text-sm font-medium text-foreground mb-2">Service Type *</label>
+                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Service Type *</label>
                   <select
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                   >
                     <option value="general">General Inquiry</option>
                     <option value="carpentry">Carpentry</option>
@@ -721,13 +721,13 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                  <label className="block text-sm font-medium text-foreground mb-2">Preferred Date</label>
+                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Preferred Date</label>
                   <input
                     type="date"
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                   />
                 </motion.div>
               </div>
