@@ -70,17 +70,14 @@ const heroCarouselItems = [
   {
     id: "1",
     image: "https://images.pexels.com/photos/6473973/pexels-photo-6473973.jpeg",
-    title: "Expert Home Repairs",
   },
   {
     id: "2",
     image: "https://images.pexels.com/photos/6474300/pexels-photo-6474300.jpeg",
-    title: "Quality Painting & Drywall",
   },
   {
     id: "3",
     image: "https://images.pexels.com/photos/5217124/pexels-photo-5217124.jpeg",
-    title: "Furniture Assembly & More",
   },
 ]
 
@@ -143,7 +140,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="relative overflow-hidden">
-        <div className="h-[550px] sm:h-96 md:h-[600px] lg:h-[700px]">
+        <div className="h-[70vh] sm:h-96 md:h-[600px] lg:h-[700px]">
           <Carousel items={heroCarouselItems} autoPlay autoPlayInterval={5000} />
         </div>
 
