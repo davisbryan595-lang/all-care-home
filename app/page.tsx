@@ -771,21 +771,21 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="bg-primary text-primary-foreground py-16 md:py-24">
+      <section className="bg-primary text-primary-foreground py-8 sm:py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">Ready to Fix Something Today?</h2>
-          <p className="text-lg mb-8 opacity-90">Join over 1000 happy homeowners who trust All Care Home Repair</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">Ready to Fix Something Today?</h2>
+          <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90">Join over 1000 happy homeowners who trust All Care Home Repair</p>
           <button
             onClick={() => {
               const element = document.querySelector("#contact")
               if (element) element.scrollIntoView({ behavior: "smooth" })
             }}
-            className="px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold text-lg"
+            className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold text-sm sm:text-base md:text-lg"
           >
             Get Your Free Quote
           </button>
