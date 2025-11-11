@@ -143,7 +143,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="relative overflow-hidden">
-        <div className="h-80 sm:h-96 md:h-[600px] lg:h-[700px]">
+        <div className="h-[550px] sm:h-96 md:h-[600px] lg:h-[700px]">
           <Carousel items={heroCarouselItems} autoPlay autoPlayInterval={5000} />
         </div>
 
