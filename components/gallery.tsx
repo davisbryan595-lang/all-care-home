@@ -87,10 +87,10 @@ export function Gallery() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance">Our Work Gallery</h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground text-balance">Our Work Gallery</h2>
+          <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto px-2">
             Explore our completed projects showcasing quality craftsmanship and attention to detail
           </p>
         </motion.div>
@@ -100,13 +100,13 @@ export function Gallery() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex flex-wrap gap-3 justify-center mb-12"
+          className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-8 sm:mb-12"
         >
           {categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+              className={`px-3 sm:px-6 py-1.5 sm:py-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm ${
                 selectedCategory === category.id
                   ? "bg-primary text-primary-foreground shadow-lg"
                   : "bg-background border border-border text-foreground hover:border-primary hover:text-primary"
@@ -120,7 +120,7 @@ export function Gallery() {
         {/* Gallery Grid */}
         <motion.div
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
           {filteredImages.map((image, index) => (
             <motion.div
