@@ -41,11 +41,11 @@ export function AnimatedCounter({ target, duration = 2, label, suffix = "+" }: A
       transition={{ duration: 0.5 }}
       className="text-center"
     >
-      <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+      <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-1 sm:mb-2">
         {count}
         {suffix}
       </div>
-      <p className="text-foreground/70 font-medium">{label}</p>
+      <p className="text-xs sm:text-sm md:text-base text-foreground/70 font-medium">{label}</p>
     </motion.div>
   )
 }
