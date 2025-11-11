@@ -508,11 +508,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mt-16"
+            className="mt-10 sm:mt-16"
           >
-            <h3 className="text-3xl font-bold text-center text-foreground mb-8">Common Questions</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-center text-foreground mb-6 sm:mb-8">Common Questions</h3>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {[
                 {
                   q: "Is the 2-hour minimum for the same job?",
@@ -536,10 +536,10 @@ export default function Home() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="bg-primary/5 rounded-lg p-6"
+                  className="bg-primary/5 rounded-lg p-4 sm:p-6"
                 >
-                  <h4 className="font-bold text-foreground mb-2 text-lg">{faq.q}</h4>
-                  <p className="text-foreground/70">{faq.a}</p>
+                  <h4 className="font-bold text-foreground mb-2 text-sm sm:text-base md:text-lg">{faq.q}</h4>
+                  <p className="text-xs sm:text-sm md:text-base text-foreground/70">{faq.a}</p>
                 </motion.div>
               ))}
             </div>
