@@ -41,22 +41,6 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Services */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h4 className="font-semibold mb-4 text-accent">Services</h4>
-            <ul className="space-y-2">
-              {["Basic Shine Package", "Deep Clean Deluxe", "Move-In/Move-Out", "Carpet Shampoo", "Window Cleaning", "Add-Ons"].map((service) => (
-                <li key={service}>
-                  <span className="text-background/70 text-sm">{service}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
           {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
