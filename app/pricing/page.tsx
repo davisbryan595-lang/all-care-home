@@ -190,20 +190,52 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Savings Counter */}
+      {/* Savings & Benefits */}
       <section className="bg-primary/10 py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <h2 className="text-3xl font-bold mb-4 text-foreground">
-            Seniors Save <span className="text-accent">$10-$20</span> Per Hour
+          <h2 className="text-3xl font-bold mb-12 text-foreground text-center">
+            Great <span className="text-accent">Discounts</span> & Benefits
           </h2>
-          <p className="text-lg text-foreground/70 mb-8">
-            With our senior discount, a 2-hour job costs just $80-$90 instead of $100
-          </p>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0 }}
+              className="bg-background rounded-lg p-6 text-center"
+            >
+              <div className="text-4xl mb-3">👴</div>
+              <h3 className="font-bold text-foreground mb-2">Senior Discounts</h3>
+              <p className="text-foreground/70">10% off for seniors (65+), up to 20% with first-time discount</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-background rounded-lg p-6 text-center"
+            >
+              <div className="text-4xl mb-3">🎁</div>
+              <h3 className="font-bold text-foreground mb-2">First-Time Customer</h3>
+              <p className="text-foreground/70">Special 10% discount on your first service booking</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-background rounded-lg p-6 text-center"
+            >
+              <div className="text-4xl mb-3">🔄</div>
+              <h3 className="font-bold text-foreground mb-2">Loyalty Program</h3>
+              <p className="text-foreground/70">Volume pricing and recurring service discounts available</p>
+            </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <AnimatedCounter target={15} label="Seniors Served This Month" suffix="+" />
