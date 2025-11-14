@@ -830,12 +830,22 @@ export default function Home() {
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                   >
                     <option value="general">General Inquiry</option>
-                    <option value="basic">Basic Shine Package</option>
-                    <option value="deluxe">Deep Clean Deluxe</option>
-                    <option value="moveout">Move-In / Move-Out</option>
-                    <option value="carpet">Carpet Shampoo</option>
-                    <option value="windows">Window Cleaning</option>
-                    <option value="addon">Add-On Services</option>
+                    <optgroup label="Cleaning Services">
+                      <option value="basic">Basic Shine Package</option>
+                      <option value="deluxe">Deep Clean Deluxe</option>
+                      <option value="moveout">Move-In / Move-Out</option>
+                      <option value="carpet">Carpet Shampoo</option>
+                      <option value="windows">Window Cleaning</option>
+                      <option value="addon">Add-On Services</option>
+                    </optgroup>
+                    <optgroup label="Handyman Services">
+                      <option value="carpentry">Carpentry & Repairs</option>
+                      <option value="drywall">Drywall & Painting</option>
+                      <option value="fixtures">Fixtures & Electrical</option>
+                      <option value="assembly">Furniture Assembly</option>
+                      <option value="plumbing">Plumbing Basics</option>
+                      <option value="seasonal">Seasonal Maintenance</option>
+                    </optgroup>
                   </select>
                 </motion.div>
 
