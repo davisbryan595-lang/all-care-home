@@ -31,34 +31,118 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* Pricing Card */}
+      {/* Pricing Cards */}
       <section className="py-16 md:py-24 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Cleaning Services Pricing */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-card border-2 border-accent rounded-lg p-8 md:p-12 shadow-lg glow-accent"
+            className="mb-16 md:mb-20"
           >
-            <div className="text-center mb-12">
-              <h2 className="text-5xl font-bold text-foreground mb-3">
-                Only <span className="text-primary">$50</span>/hour
-              </h2>
-              <p className="text-2xl text-accent font-semibold mb-4">2-hour minimum</p>
-              <p className="text-foreground/70 text-lg">Professional service at fair market rates</p>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">Cleaning Services Pricing</h2>
+            <div className="bg-card border-2 border-accent rounded-lg p-8 md:p-12 shadow-lg">
+              <div className="text-center mb-12">
+                <p className="text-2xl text-accent font-semibold mb-4">Professional house cleaning service</p>
+                <p className="text-foreground/70 text-lg">Fair pricing with exceptional results</p>
+              </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <div>
-                <h3 className="text-xl font-bold text-foreground mb-4">What's Included</h3>
-                <ul className="space-y-3">
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                <div>
+                  <h3 className="text-xl font-bold text-foreground mb-4">What's Included</h3>
+                  <ul className="space-y-3">
+                    {[
+                      "Professional expertise",
+                      "All basic tools & materials",
+                      "Fully insured service",
+                      "Clean up after work",
+                      "Friendly, reliable service",
+                      "Background-checked technician",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3">
+                        <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-foreground mb-4">Special Discounts</h3>
+                  <ul className="space-y-3">
+                    {[
+                      "10% discount for seniors (65+)",
+                      "10% discount for first-time customers",
+                      "Combine both discounts up to 20% off",
+                      "Volume pricing available",
+                      "Seasonal service packages",
+                      "Loyalty rewards program",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-3">
+                        <span className="text-accent text-xl">⭐</span>
+                        <span className="text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <div className="bg-primary/5 rounded-lg p-6 text-center">
+                  <p className="text-3xl font-bold text-accent mb-2">$85</p>
+                  <h4 className="font-bold text-foreground mb-2">Basic Shine</h4>
+                  <p className="text-sm text-foreground/70">Up to 2 hours</p>
+                </div>
+                <div className="bg-primary/10 rounded-lg p-6 text-center border-2 border-accent">
+                  <p className="text-3xl font-bold text-accent mb-2">$160</p>
+                  <h4 className="font-bold text-foreground mb-2">Deep Clean Deluxe</h4>
+                  <p className="text-sm text-foreground/70">Up to 4 hours</p>
+                </div>
+                <div className="bg-primary/5 rounded-lg p-6 text-center">
+                  <p className="text-3xl font-bold text-accent mb-2">$220</p>
+                  <h4 className="font-bold text-foreground mb-2">Move-In/Out</h4>
+                  <p className="text-sm text-foreground/70">Full service</p>
+                </div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-center"
+              >
+                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Link href="/contact">Book Cleaning Service</Link>
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Handyman Services Pricing */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">Handyman Services Pricing</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-card border-2 border-primary rounded-lg p-8 md:p-10 shadow-lg">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold text-foreground mb-3">Standard Handyman</h3>
+                  <p className="text-4xl font-bold text-primary mb-2">$60<span className="text-lg">/hr</span></p>
+                  <p className="text-foreground/70 font-semibold">2-hour minimum ($120)</p>
+                </div>
+
+                <h4 className="font-bold text-foreground mb-4">Includes:</h4>
+                <ul className="space-y-3 mb-8">
                   {[
-                    "Professional expertise",
-                    "All basic tools & materials",
-                    "Fully insured service",
-                    "Clean up after work",
-                    "Friendly, reliable service",
-                    "Background-checked technician",
+                    "Door repairs & adjustments",
+                    "Fixture installations",
+                    "Furniture assembly",
+                    "General repairs",
+                    "Shelving installation",
+                    "Small maintenance jobs",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-3">
                       <Check className="w-5 h-5 text-primary flex-shrink-0" />
@@ -66,38 +150,42 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
+
+                <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Link href="/contact">Request Standard Service</Link>
+                </Button>
               </div>
 
-              <div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Special Discounts</h3>
-                <ul className="space-y-3">
+              <div className="bg-card border-2 border-accent rounded-lg p-8 md:p-10 shadow-lg">
+                <div className="text-center mb-8">
+                  <div className="inline-block bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-bold mb-4">POPULAR</div>
+                  <h3 className="text-2xl font-bold text-foreground mb-3">Premium Handyman</h3>
+                  <p className="text-4xl font-bold text-accent mb-2">$75<span className="text-lg">/hr</span></p>
+                  <p className="text-foreground/70 font-semibold">2-hour minimum ($150)</p>
+                </div>
+
+                <h4 className="font-bold text-foreground mb-4">Includes Everything in Standard, Plus:</h4>
+                <ul className="space-y-3 mb-8">
                   {[
-                    "10% discount for seniors (65+)",
-                    "10% discount for first-time customers",
-                    "Combine both discounts up to 20% off",
-                    "Volume pricing available",
-                    "Seasonal service packages",
-                    "Loyalty rewards program",
+                    "Drywall repair & finishing",
+                    "Interior painting",
+                    "Plumbing basics",
+                    "Carpentry work",
+                    "Ceiling fan installation",
+                    "Complex repairs & custom projects",
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-3">
-                      <span className="text-accent text-xl">⭐</span>
+                      <Check className="w-5 h-5 text-accent flex-shrink-0" />
                       <span className="text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
+
+                <Button asChild size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Link href="/contact">Request Premium Service</Link>
+                </Button>
               </div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-center"
-            >
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Link href="/contact">Book Your 2-Hour Slot</Link>
-              </Button>
-            </motion.div>
           </motion.div>
         </div>
       </section>
