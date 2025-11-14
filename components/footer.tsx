@@ -17,6 +17,7 @@ export function Footer() {
             <p className="text-background/80 text-sm">
               Professional home cleaning services in Cochrane, Ontario. Reliable, affordable, and done right every time.
             </p>
+            <p className="text-background/60 text-xs mt-3">Owner: Ian Emans</p>
           </motion.div>
 
           {/* Quick Links */}
