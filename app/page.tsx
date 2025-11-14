@@ -398,7 +398,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-8 sm:mb-12"
           >
-            Transparent & Affordable
+            Affordable Cleaning Packages
           </motion.h2>
 
           <motion.div
@@ -408,50 +408,82 @@ export default function Home() {
             className="bg-card border-2 border-accent rounded-lg p-6 sm:p-8 md:p-12 shadow-lg"
           >
             <div className="text-center mb-8 sm:mb-12">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 sm:mb-3">
-                Only <span className="text-primary">$50</span>/hour
-              </h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-accent font-semibold mb-3 sm:mb-4">2-hour minimum</p>
-              <p className="text-sm sm:text-base md:text-lg text-foreground/70">Professional service at fair market rates</p>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">Our Cleaning Packages</h3>
+              <p className="text-sm sm:text-base md:text-lg text-foreground/70">Choose the perfect package for your needs</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              <div>
-                <h4 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-3 sm:mb-4">What's Included</h4>
-                <ul className="space-y-2 sm:space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+              <div className="bg-primary/5 rounded-lg p-6">
+                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Basic Shine</h4>
+                <p className="text-3xl font-bold text-accent mb-4">$85</p>
+                <p className="text-sm text-foreground/70 mb-4">Up to 2 hours</p>
+                <ul className="space-y-2">
                   {[
-                    "Professional expertise",
-                    "All basic tools & materials",
-                    "Fully insured service",
-                    "Clean up after work",
-                    "Friendly, reliable service",
-                    "Background-checked technician",
+                    "Dust all surfaces",
+                    "Vacuum & mop floors",
+                    "Clean kitchen & bathroom",
+                    "Empty garbage bins",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 sm:gap-3">
-                      <Check className="w-4 sm:w-5 h-4 sm:h-5 text-primary flex-shrink-0" />
-                      <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
+                    <li key={idx} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div>
-                <h4 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-3 sm:mb-4">Special Discounts</h4>
-                <ul className="space-y-2 sm:space-y-3">
+              <div className="bg-primary/10 rounded-lg p-6 border-2 border-accent">
+                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Deep Clean Deluxe</h4>
+                <p className="text-3xl font-bold text-accent mb-4">$160</p>
+                <p className="text-sm text-foreground/70 mb-4">Up to 4 hours</p>
+                <ul className="space-y-2">
                   {[
-                    "10% discount for seniors (65+)",
-                    "10% discount for first-time customers",
-                    "Combine both discounts up to 20% off",
-                    "Volume pricing available",
-                    "Seasonal service packages",
-                    "Loyalty rewards program",
+                    "Everything in Basic Shine",
+                    "Inside fridge & oven",
+                    "Detailed bathroom scrub",
+                    "Window sills & light fixtures",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 sm:gap-3">
-                      <span className="text-accent text-lg sm:text-xl flex-shrink-0">⭐</span>
-                      <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
+                    <li key={idx} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="bg-primary/5 rounded-lg p-6">
+                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Move-In/Out</h4>
+                <p className="text-3xl font-bold text-accent mb-4">$220</p>
+                <p className="text-sm text-foreground/70 mb-4">Full top-to-bottom</p>
+                <ul className="space-y-2">
+                  {[
+                    "Complete deep clean",
+                    "Inside all cupboards",
+                    "Walls & trim cleaned",
+                    "Floors polished",
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-accent/10 rounded-lg p-6 mb-8">
+              <h4 className="text-base sm:text-lg font-bold text-foreground mb-4">Add-On Services</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  "Carpet Shampoo – $40 per room",
+                  "Window Cleaning (Exterior) – $50",
+                  "Laundry or Dish Service – $25/hr",
+                  "Garage or Porch Cleanup – $50",
+                ].map((item, idx) => (
+                  <p key={idx} className="text-sm text-foreground flex items-center gap-2">
+                    <span className="text-accent">✨</span>{item}
+                  </p>
+                ))}
               </div>
             </div>
 
@@ -468,30 +500,9 @@ export default function Home() {
                 }}
                 className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold text-sm sm:text-base md:text-lg"
               >
-                Book Your 2-Hour Slot
+                Book Your Cleaning Today
               </button>
             </motion.div>
-          </motion.div>
-
-          {/* Savings Counter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mt-10 sm:mt-16 text-center"
-          >
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-foreground">
-              Seniors Save <span className="text-accent">$10-$20</span> Per Hour
-            </h3>
-            <p className="text-xs sm:text-sm md:text-lg text-foreground/70 mb-6 sm:mb-8 px-2">
-              With our senior discount, a 2-hour job costs just $80-$90 instead of $100
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-              <AnimatedCounter target={15} label="Seniors Served This Month" suffix="+" />
-              <AnimatedCounter target={20} label="Average Savings Per Job" suffix="%" />
-              <AnimatedCounter target={100} label="Satisfaction Rate" suffix="%" />
-            </div>
           </motion.div>
 
           {/* FAQ */}
