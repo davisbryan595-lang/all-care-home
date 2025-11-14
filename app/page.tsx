@@ -487,62 +487,108 @@ export default function Home() {
               <p className="text-sm sm:text-base md:text-lg text-foreground/70">Choose the perfect package for your needs</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              <div className="bg-primary/5 rounded-lg p-6">
-                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Basic Shine</h4>
-                <p className="text-3xl font-bold text-accent mb-4">$85</p>
-                <p className="text-sm text-foreground/70 mb-4">Up to 2 hours</p>
-                <ul className="space-y-2">
-                  {[
-                    "Dust all surfaces",
-                    "Vacuum & mop floors",
-                    "Clean kitchen & bathroom",
-                    "Empty garbage bins",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="mb-8 sm:mb-12">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">Cleaning Packages</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <div className="bg-primary/5 rounded-lg p-6">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Basic Shine</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$85</p>
+                  <p className="text-sm text-foreground/70 mb-4">Up to 2 hours</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Dust all surfaces",
+                      "Vacuum & mop floors",
+                      "Clean kitchen & bathroom",
+                      "Empty garbage bins",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <div className="bg-primary/10 rounded-lg p-6 border-2 border-accent">
-                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Deep Clean Deluxe</h4>
-                <p className="text-3xl font-bold text-accent mb-4">$160</p>
-                <p className="text-sm text-foreground/70 mb-4">Up to 4 hours</p>
-                <ul className="space-y-2">
-                  {[
-                    "Everything in Basic Shine",
-                    "Inside fridge & oven",
-                    "Detailed bathroom scrub",
-                    "Window sills & light fixtures",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <div className="bg-primary/10 rounded-lg p-6 border-2 border-accent">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Deep Clean Deluxe</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$160</p>
+                  <p className="text-sm text-foreground/70 mb-4">Up to 4 hours</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Everything in Basic Shine",
+                      "Inside fridge & oven",
+                      "Detailed bathroom scrub",
+                      "Window sills & light fixtures",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <div className="bg-primary/5 rounded-lg p-6">
-                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Move-In/Out</h4>
-                <p className="text-3xl font-bold text-accent mb-4">$220</p>
-                <p className="text-sm text-foreground/70 mb-4">Full top-to-bottom</p>
-                <ul className="space-y-2">
-                  {[
-                    "Complete deep clean",
-                    "Inside all cupboards",
-                    "Walls & trim cleaned",
-                    "Floors polished",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="bg-primary/5 rounded-lg p-6">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Move-In/Out</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$220</p>
+                  <p className="text-sm text-foreground/70 mb-4">Full top-to-bottom</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Complete deep clean",
+                      "Inside all cupboards",
+                      "Walls & trim cleaned",
+                      "Floors polished",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">Handyman Services</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <div className="bg-primary/5 rounded-lg p-6">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Standard Handyman</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$60/hr</p>
+                  <p className="text-sm text-foreground/70 mb-4">2-hour minimum</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Door repairs & adjustments",
+                      "Fixture installations",
+                      "Furniture assembly",
+                      "General repairs",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-primary/10 rounded-lg p-6 border-2 border-accent">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Premium Handyman</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$75/hr</p>
+                  <p className="text-sm text-foreground/70 mb-4">2-hour minimum</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Everything in Standard",
+                      "Drywall & painting",
+                      "Plumbing basics",
+                      "Carpentry work",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
 
