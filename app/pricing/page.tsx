@@ -245,7 +245,7 @@ export default function Pricing() {
         </motion.div>
       </section>
 
-      {/* FAQ Preview */}
+      {/* FAQ */}
       <section className="py-16 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12 text-foreground">Common Questions</h2>
@@ -253,20 +253,28 @@ export default function Pricing() {
           <div className="space-y-6">
             {[
               {
-                q: "Is the 2-hour minimum for the same job?",
-                a: "Yes, we offer a 2-hour minimum per visit. You can complete multiple jobs in those hours.",
+                q: "Is the 2-hour minimum for cleaning and handyman services?",
+                a: "Yes, both cleaning and handyman services have a 2-hour minimum per visit. You can complete multiple jobs in those hours.",
               },
               {
                 q: "Do you charge for travel?",
-                a: "No additional travel charges within Cochrane. We believe in transparent, fair pricing.",
+                a: "No additional travel charges within Cochrane and surrounding areas. We believe in transparent, fair pricing.",
               },
               {
-                q: "What if the job takes less than 2 hours?",
-                a: "You still pay the 2-hour minimum, but we'll use that time to complete additional small tasks if available.",
+                q: "What's the difference between Standard and Premium Handyman?",
+                a: "Standard handles basic repairs, fixtures, and assembly. Premium includes drywall, painting, plumbing, carpentry, and complex projects.",
               },
               {
-                q: "Do materials cost extra?",
-                a: "Basic materials are included. If your project requires special or premium materials, we'll discuss that upfront.",
+                q: "Are materials included in the handyman pricing?",
+                a: "Basic tools and materials are included. For special or premium materials, we'll provide an estimate upfront before proceeding.",
+              },
+              {
+                q: "How do the senior discounts work?",
+                a: "Seniors get 10% off. First-time customers also get 10% off. These can be combined for up to 20% total savings.",
+              },
+              {
+                q: "Can I combine cleaning and handyman services?",
+                a: "Absolutely! Many customers book both services. We'll ensure efficient scheduling and coordinate the work seamlessly.",
               },
             ].map((faq, idx) => (
               <motion.div
