@@ -32,22 +32,46 @@ export default function Contact() {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitted(true)
-      setIsLoading(false)
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        service: "general",
-        date: "",
-        time: "",
-        message: "",
+    try {
+      const response = await fetch("https://silentforms.com/api/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SILENTFORMS_API_KEY}`,
+        },
+        body: JSON.stringify({
+          email: "allcarerepairservices@outlook.com",
+          name: formData.name,
+          phone: formData.phone,
+          sender_email: formData.email,
+          service: formData.service,
+          date: formData.date,
+          time: formData.time,
+          message: formData.message,
+        }),
       })
 
-      setTimeout(() => setSubmitted(false), 5000)
-    }, 1500)
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          service: "general",
+          date: "",
+          time: "",
+          message: "",
+        })
+
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        console.error("Form submission failed")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -87,8 +111,8 @@ export default function Contact() {
               {
                 icon: Mail,
                 title: "Email",
-                content: "allrepairservices@outlook.com",
-                action: "mailto:allrepairservices@outlook.com",
+                content: "allcarerepairservices@outlook.com",
+                action: "mailto:allcarerepairservices@outlook.com",
               },
               {
                 icon: MapPin,
