@@ -311,34 +311,6 @@ export default function Home() {
       {/* Gallery Section */}
       <Gallery />
 
-      {/* Handyman Services Section */}
-      <section id="handyman-services" className="py-8 sm:py-16 md:py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-8 sm:mb-12 md:mb-16"
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground text-balance">Handyman Services</h2>
-            <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto px-2">
-              From home repairs to renovations, we handle all your handyman needs with professional expertise
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {handymanServices.map((service, index) => (
-              <ServiceCard
-                key={index}
-                {...service}
-                index={index}
-                onLearnMore={() => handleLearnMore(service)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section id="about" className="py-8 sm:py-16 md:py-24 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
