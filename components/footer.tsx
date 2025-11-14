@@ -10,12 +10,12 @@ export function Footer() {
   return (
     <footer className="bg-foreground text-background py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h3 className="font-bold text-lg text-accent mb-4">ALL CARE HOME SERVICES</h3>
             <p className="text-background/80 text-sm">
-              Professional home cleaning services in Cochrane, Ontario. Reliable, affordable, and done right every time.
+              Professional home services in Cochrane, Ontario. Reliable, affordable, and done right every time.
             </p>
             <p className="text-background/60 text-xs mt-3">Owner: Ian Emans</p>
           </motion.div>
@@ -41,27 +41,11 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Services */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h4 className="font-semibold mb-4 text-accent">Services</h4>
-            <ul className="space-y-2">
-              {["Basic Shine Package", "Deep Clean Deluxe", "Move-In/Move-Out", "Carpet Shampoo", "Window Cleaning", "Add-Ons"].map((service) => (
-                <li key={service}>
-                  <span className="text-background/70 text-sm">{service}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
           {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h4 className="font-semibold mb-4 text-accent">Get in Touch</h4>
             <div className="space-y-3">
