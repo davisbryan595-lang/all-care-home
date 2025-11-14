@@ -780,8 +780,8 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">Ready to Fix Something Today?</h2>
-          <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90">Join over 1000 happy homeowners who trust All Care Home Repair</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">Ready for a Sparkling Clean Home?</h2>
+          <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90">Join hundreds of happy homeowners who trust All Care Home Cleaning</p>
           <button
             onClick={() => {
               const element = document.querySelector("#contact")
@@ -789,7 +789,7 @@ export default function Home() {
             }}
             className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold text-sm sm:text-base md:text-lg"
           >
-            Get Your Free Quote
+            Book Your Cleaning Today
           </button>
         </motion.div>
       </section>
