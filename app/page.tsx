@@ -517,20 +517,20 @@ export default function Home() {
             <div className="space-y-4 sm:space-y-6">
               {[
                 {
-                  q: "Is the 2-hour minimum for the same job?",
-                  a: "Yes, we offer a 2-hour minimum per visit. You can complete multiple jobs in those hours.",
+                  q: "How long does each package take?",
+                  a: "Basic Shine takes up to 2 hours, Deep Clean Deluxe takes up to 4 hours, and Move-In/Out cleaning is a full thorough clean depending on home size.",
                 },
                 {
-                  q: "Do you charge for travel?",
-                  a: "No additional travel charges within Cochrane. We believe in transparent, fair pricing.",
+                  q: "Do you use your own cleaning supplies?",
+                  a: "Yes, we bring professional-grade cleaning supplies. If you prefer specific products, please let us know in advance.",
                 },
                 {
-                  q: "What if the job takes less than 2 hours?",
-                  a: "You still pay the 2-hour minimum, but we'll use that time to complete additional small tasks if available.",
+                  q: "Are you available for recurring cleanings?",
+                  a: "Absolutely! Many customers prefer weekly or bi-weekly maintenance with our Basic Shine package. Contact us to set up a recurring schedule.",
                 },
                 {
-                  q: "Do materials cost extra?",
-                  a: "Basic materials are included. If your project requires special or premium materials, we'll discuss that upfront.",
+                  q: "Do you serve seniors with special care?",
+                  a: "Yes! We provide gentle, respectful service for seniors and can accommodate any special requests or accessibility needs.",
                 },
               ].map((faq, idx) => (
                 <motion.div
