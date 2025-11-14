@@ -13,7 +13,7 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <h3 className="font-bold text-lg text-accent mb-4">ALL CARE HOME CLEANING</h3>
+            <h3 className="font-bold text-lg text-accent mb-4">ALL CARE HOME SERVICES</h3>
             <p className="text-background/80 text-sm">
               Professional home cleaning services in Cochrane, Ontario. Reliable, affordable, and done right every time.
             </p>
@@ -87,7 +87,7 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-background/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-background/70 text-sm">© {currentYear} All Care Home Cleaning. All rights reserved.</p>
+            <p className="text-background/70 text-sm">© {currentYear} All Care Home Services. All rights reserved.</p>
             <div className="flex gap-4">
               <a href="#" className="text-background/70 hover:text-accent transition-colors">
                 <Facebook className="w-5 h-5" />
