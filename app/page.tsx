@@ -159,24 +159,20 @@ export default function Home() {
     setIsLoading(true)
 
     try {
-      const response = await fetch("https://api.silentforms.com/api/v1/forms/submit", {
+      const response = await fetch("https://silentforms.com/api/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          form_id: "allcare",
-          to: "allcarerepairservices@outlook.com",
-          subject: `New Quote Request from ${formData.name}`,
-          data: {
-            name: formData.name,
-            phone: formData.phone,
-            email: formData.email,
-            service: formData.service,
-            date: formData.date,
-            time: formData.time,
-            message: formData.message,
-          },
+          email: "allcarerepairservices@outlook.com",
+          name: formData.name,
+          phone: formData.phone,
+          sender_email: formData.email,
+          service: formData.service,
+          date: formData.date,
+          time: formData.time,
+          message: formData.message,
         }),
       })
 
