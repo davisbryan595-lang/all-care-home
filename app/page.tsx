@@ -21,7 +21,7 @@ interface Service {
   details?: string[]
 }
 
-const cleaningServices = [
+const services = [
   {
     icon: "🏠",
     title: "Basic Shine Package",
@@ -64,9 +64,6 @@ const cleaningServices = [
     image: "https://images.pexels.com/photos/11229483/pexels-photo-11229483.jpeg",
     details: ["Laundry or Dish Service – $25/hr", "Garage or Porch Cleanup – $50", "Custom add-ons available"],
   },
-]
-
-const handymanServices = [
   {
     icon: "🔨",
     title: "Small Carpentry & Repairs",
@@ -110,8 +107,6 @@ const handymanServices = [
     details: ["Gutter cleaning & repair", "Weatherproofing", "Deck maintenance", "Seasonal prep"],
   },
 ]
-
-const services = cleaningServices
 
 const heroCarouselItems = [
   {
