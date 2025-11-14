@@ -72,8 +72,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-accent" />
-                <a href="mailto:allcarerepair@outlook.ca" className="text-background/70 hover:text-accent text-sm">
-                  allcarerepair@outlook.ca
+                <a href="mailto:allrepairservices@outlook.com" className="text-background/70 hover:text-accent text-sm">
+                  allrepairservices@outlook.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
