@@ -194,10 +194,10 @@ export default function Home() {
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            <AnimatedCounter target={15} label="Years Experience" />
-            <AnimatedCounter target={1000} label="Happy Homes Served" />
-            <AnimatedCounter target={100} label="Senior-Friendly Projects" suffix="+" />
-            <AnimatedCounter target={500} label="No Job Too Small" suffix="+" />
+            <AnimatedCounter target={15} label="Years in Business" />
+            <AnimatedCounter target={1000} label="Happy Homes Cleaned" />
+            <AnimatedCounter target={5} label="Star Rating" suffix="★" />
+            <AnimatedCounter target={100} label="Satisfaction Rate" suffix="%" />
           </div>
         </div>
       </section>
