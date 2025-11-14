@@ -302,9 +302,9 @@ export default function Home() {
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">Why Choose Us</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {[
-                { icon: Award, title: "15+ Years Experience", desc: "Proven track record of quality work" },
-                { icon: Users, title: "Local & Dependable", desc: "Serving Cochrane families since 2010" },
-                { icon: Heart, title: "Senior-Friendly", desc: "Special care and respect for our elders" },
+                { icon: Award, title: "Professional Team", desc: "Trained and experienced cleaners" },
+                { icon: Users, title: "Local & Dependable", desc: "Serving Cochrane families with pride" },
+                { icon: Heart, title: "Senior-Friendly", desc: "Gentle, respectful service for all ages" },
                 { icon: Shield, title: "Fully Insured", desc: "Licensed and insured for your peace of mind" },
               ].map((item, idx) => {
                 const Icon = item.icon
