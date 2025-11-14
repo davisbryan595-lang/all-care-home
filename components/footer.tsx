@@ -15,7 +15,7 @@ export function Footer() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h3 className="font-bold text-lg text-accent mb-4">ALL CARE HOME SERVICES</h3>
             <p className="text-background/80 text-sm">
-              Professional home cleaning services in Cochrane, Ontario. Reliable, affordable, and done right every time.
+              Professional home services in Cochrane, Ontario. Reliable, affordable, and done right every time.
             </p>
             <p className="text-background/60 text-xs mt-3">Owner: Ian Emans</p>
           </motion.div>
