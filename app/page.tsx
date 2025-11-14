@@ -23,46 +23,46 @@ interface Service {
 
 const services = [
   {
-    icon: "🔨",
-    title: "Small Carpentry Repairs",
-    description: "Expert door, trim, and shelving repairs",
-    image: "https://images.pexels.com/photos/6473973/pexels-photo-6473973.jpeg",
-    details: ["Door repairs", "Trim work", "Shelving installation"],
-  },
-  {
-    icon: "🎨",
-    title: "Drywall Patching & Painting",
-    description: "Professional wall finishing and painting",
-    image: "https://images.pexels.com/photos/6474300/pexels-photo-6474300.jpeg",
-    details: ["Drywall patching", "Wall painting", "Texture application"],
-  },
-  {
-    icon: "💡",
-    title: "Fixture Replacements",
-    description: "Install lights, faucets, and more",
-    image: "https://images.pexels.com/photos/5691531/pexels-photo-5691531.jpeg",
-    details: ["Light fixtures", "Faucets", "Ceiling fans"],
-  },
-  {
-    icon: "🛠️",
-    title: "Furniture Assembly & Odd Jobs",
-    description: "Assemble anything or handle odd tasks",
-    image: "https://images.pexels.com/photos/5217124/pexels-photo-5217124.jpeg",
-    details: ["Furniture assembly", "Odd jobs", "Small projects"],
-  },
-  {
-    icon: "🍂",
-    title: "Seasonal Maintenance",
-    description: "Keep your home ready year-round",
-    image: "https://images.pexels.com/photos/11229483/pexels-photo-11229483.jpeg",
-    details: ["Gutter cleaning", "Snow removal", "Weatherproofing"],
+    icon: "🏠",
+    title: "Basic Shine Package",
+    description: "Perfect for regular upkeep (up to 2 hours)",
+    image: "https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg",
+    details: ["Dust all surfaces & baseboards", "Vacuum & mop floors", "Clean kitchen counters & sinks", "Wipe down bathroom surfaces", "Empty all garbage bins"],
   },
   {
     icon: "✨",
-    title: "House Cleaning",
-    description: "Professional cleaning at $20/hour",
-    image: "https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg",
-    details: ["General cleaning", "Post-repair cleanup", "Deep cleaning"],
+    title: "Deep Clean Deluxe",
+    description: "Get your home sparkling again (up to 4 hours)",
+    image: "https://images.pexels.com/photos/6474300/pexels-photo-6474300.jpeg",
+    details: ["Includes everything in the Basic Shine", "Inside fridge & oven", "Detailed bathroom scrub", "Window sills & door frames", "Light fixtures & ceiling fans"],
+  },
+  {
+    icon: "🚚",
+    title: "Move-In / Move-Out Package",
+    description: "Perfect for landlords, tenants, or new homeowners",
+    image: "https://images.pexels.com/photos/6473973/pexels-photo-6473973.jpeg",
+    details: ["Full top-to-bottom cleaning", "Inside cupboards, closets & appliances", "Walls & trim spot-cleaned", "Windows (interior)", "Floors detailed and polished"],
+  },
+  {
+    icon: "🧤",
+    title: "Carpet Shampoo",
+    description: "Deep clean your carpets",
+    image: "https://images.pexels.com/photos/5217124/pexels-photo-5217124.jpeg",
+    details: ["Professional grade cleaning", "Stain treatment", "Quick drying", "$40 per room"],
+  },
+  {
+    icon: "🪟",
+    title: "Window Cleaning",
+    description: "Crystal clear windows inside and out",
+    image: "https://images.pexels.com/photos/5691531/pexels-photo-5691531.jpeg",
+    details: ["Interior window cleaning", "Exterior window cleaning", "Window sills & frames", "$50 for exterior"],
+  },
+  {
+    icon: "🧹",
+    title: "Add-On Services",
+    description: "Customize your cleaning package",
+    image: "https://images.pexels.com/photos/11229483/pexels-photo-11229483.jpeg",
+    details: ["Laundry or Dish Service – $25/hr", "Garage or Porch Cleanup – $50", "Custom add-ons available"],
   },
 ]
 
@@ -152,11 +152,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center text-white max-w-3xl mx-auto px-3 sm:px-4"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-balance leading-tight">RELIABLE LOCAL AFFORDABLE</h1>
-            <p className="text-base sm:text-lg md:text-2xl mb-4 sm:mb-6 text-gray-100">Need a hand around the house?</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-balance leading-tight">RELIABLE • AFFORDABLE • DONE RIGHT EVERY TIME</h1>
+            <p className="text-base sm:text-lg md:text-2xl mb-4 sm:mb-6 text-gray-100">Your trusted local cleaning team</p>
             <p className="text-xs sm:text-sm md:text-base mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto line-clamp-4 sm:line-clamp-none">
-              With over 15 years of experience, All Care Home Repair provides trusted, affordable home maintenance and
-              repair services to homeowners and seniors across Cochrane, Ontario.
+              All Care Home Cleaning provides professional, affordable home cleaning services to homeowners across Cochrane, Ontario and the surrounding areas. Serving the community with care and excellence.
             </p>
             <div className="flex flex-col gap-3 sm:gap-4">
               <button
@@ -195,10 +194,10 @@ export default function Home() {
           </motion.h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-            <AnimatedCounter target={15} label="Years Experience" />
-            <AnimatedCounter target={1000} label="Happy Homes Served" />
-            <AnimatedCounter target={100} label="Senior-Friendly Projects" suffix="+" />
-            <AnimatedCounter target={500} label="No Job Too Small" suffix="+" />
+            <AnimatedCounter target={15} label="Years in Business" />
+            <AnimatedCounter target={1000} label="Happy Homes Cleaned" />
+            <AnimatedCounter target={5} label="Star Rating" suffix="★" />
+            <AnimatedCounter target={100} label="Satisfaction Rate" suffix="%" />
           </div>
         </div>
       </section>
@@ -248,9 +247,9 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground text-balance">Our Services</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground text-balance">All Care Home Cleaning Packages</h2>
             <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto px-2">
-              From small repairs to complete projects, we handle it all with professionalism and care
+              Choose the perfect cleaning package for your home, or customize with add-on services
             </p>
           </motion.div>
 
@@ -282,18 +281,13 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">Our Story</h2>
             <div className="space-y-3 sm:space-y-4">
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                All Care Home Repair was founded on a simple principle: homeowners deserve honest, reliable service at
-                fair prices. Whether you're a busy professional, a senior looking for trustworthy help, or anyone in
-                between, we're here to take the stress out of home repairs.
+                All Care Home Cleaning was founded on a simple principle: homeowners deserve professional, reliable cleaning at fair prices. Whether you're a busy professional, a senior looking for trustworthy help, or anyone in between, we're here to take the stress out of housecleaning.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                With over 15 years of hands-on experience, our team has completed thousands of repairs across Cochrane
-                and the surrounding areas. We believe that quality craftsmanship, respect for your home, and genuine
-                care are the foundations of a great service business.
+                With years of hands-on experience, our team has helped thousands of homes sparkle across Cochrane and the surrounding areas. We believe that attention to detail, respect for your home, and genuine care are the foundations of a great cleaning service.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                Today, we're proud to serve families, seniors, and businesses who value reliability and fair pricing.
-                And we're still growing, thanks to customers like you.
+                Today, we're proud to serve families, seniors, and businesses who value reliability and fair pricing. Whether you need a weekly maintenance clean or a deep clean before an important event, All Care Home Cleaning is here for you.
               </p>
             </div>
           </motion.div>
@@ -308,9 +302,9 @@ export default function Home() {
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">Why Choose Us</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
               {[
-                { icon: Award, title: "15+ Years Experience", desc: "Proven track record of quality work" },
-                { icon: Users, title: "Local & Dependable", desc: "Serving Cochrane families since 2010" },
-                { icon: Heart, title: "Senior-Friendly", desc: "Special care and respect for our elders" },
+                { icon: Award, title: "Professional Team", desc: "Trained and experienced cleaners" },
+                { icon: Users, title: "Local & Dependable", desc: "Serving Cochrane families with pride" },
+                { icon: Heart, title: "Senior-Friendly", desc: "Gentle, respectful service for all ages" },
                 { icon: Shield, title: "Fully Insured", desc: "Licensed and insured for your peace of mind" },
               ].map((item, idx) => {
                 const Icon = item.icon
@@ -404,7 +398,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-foreground mb-8 sm:mb-12"
           >
-            Transparent & Affordable
+            Affordable Cleaning Packages
           </motion.h2>
 
           <motion.div
@@ -414,50 +408,82 @@ export default function Home() {
             className="bg-card border-2 border-accent rounded-lg p-6 sm:p-8 md:p-12 shadow-lg"
           >
             <div className="text-center mb-8 sm:mb-12">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-2 sm:mb-3">
-                Only <span className="text-primary">$50</span>/hour
-              </h3>
-              <p className="text-lg sm:text-xl md:text-2xl text-accent font-semibold mb-3 sm:mb-4">2-hour minimum</p>
-              <p className="text-sm sm:text-base md:text-lg text-foreground/70">Professional service at fair market rates</p>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">Our Cleaning Packages</h3>
+              <p className="text-sm sm:text-base md:text-lg text-foreground/70">Choose the perfect package for your needs</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              <div>
-                <h4 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-3 sm:mb-4">What's Included</h4>
-                <ul className="space-y-2 sm:space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+              <div className="bg-primary/5 rounded-lg p-6">
+                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Basic Shine</h4>
+                <p className="text-3xl font-bold text-accent mb-4">$85</p>
+                <p className="text-sm text-foreground/70 mb-4">Up to 2 hours</p>
+                <ul className="space-y-2">
                   {[
-                    "Professional expertise",
-                    "All basic tools & materials",
-                    "Fully insured service",
-                    "Clean up after work",
-                    "Friendly, reliable service",
-                    "Background-checked technician",
+                    "Dust all surfaces",
+                    "Vacuum & mop floors",
+                    "Clean kitchen & bathroom",
+                    "Empty garbage bins",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 sm:gap-3">
-                      <Check className="w-4 sm:w-5 h-4 sm:h-5 text-primary flex-shrink-0" />
-                      <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
+                    <li key={idx} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div>
-                <h4 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-3 sm:mb-4">Special Discounts</h4>
-                <ul className="space-y-2 sm:space-y-3">
+              <div className="bg-primary/10 rounded-lg p-6 border-2 border-accent">
+                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Deep Clean Deluxe</h4>
+                <p className="text-3xl font-bold text-accent mb-4">$160</p>
+                <p className="text-sm text-foreground/70 mb-4">Up to 4 hours</p>
+                <ul className="space-y-2">
                   {[
-                    "10% discount for seniors (65+)",
-                    "10% discount for first-time customers",
-                    "Combine both discounts up to 20% off",
-                    "Volume pricing available",
-                    "Seasonal service packages",
-                    "Loyalty rewards program",
+                    "Everything in Basic Shine",
+                    "Inside fridge & oven",
+                    "Detailed bathroom scrub",
+                    "Window sills & light fixtures",
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2 sm:gap-3">
-                      <span className="text-accent text-lg sm:text-xl flex-shrink-0">⭐</span>
-                      <span className="text-xs sm:text-sm md:text-base text-foreground">{item}</span>
+                    <li key={idx} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="bg-primary/5 rounded-lg p-6">
+                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Move-In/Out</h4>
+                <p className="text-3xl font-bold text-accent mb-4">$220</p>
+                <p className="text-sm text-foreground/70 mb-4">Full top-to-bottom</p>
+                <ul className="space-y-2">
+                  {[
+                    "Complete deep clean",
+                    "Inside all cupboards",
+                    "Walls & trim cleaned",
+                    "Floors polished",
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="bg-accent/10 rounded-lg p-6 mb-8">
+              <h4 className="text-base sm:text-lg font-bold text-foreground mb-4">Add-On Services</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  "Carpet Shampoo – $40 per room",
+                  "Window Cleaning (Exterior) – $50",
+                  "Laundry or Dish Service – $25/hr",
+                  "Garage or Porch Cleanup – $50",
+                ].map((item, idx) => (
+                  <p key={idx} className="text-sm text-foreground flex items-center gap-2">
+                    <span className="text-accent">✨</span>{item}
+                  </p>
+                ))}
               </div>
             </div>
 
@@ -474,30 +500,9 @@ export default function Home() {
                 }}
                 className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold text-sm sm:text-base md:text-lg"
               >
-                Book Your 2-Hour Slot
+                Book Your Cleaning Today
               </button>
             </motion.div>
-          </motion.div>
-
-          {/* Savings Counter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mt-10 sm:mt-16 text-center"
-          >
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-foreground">
-              Seniors Save <span className="text-accent">$10-$20</span> Per Hour
-            </h3>
-            <p className="text-xs sm:text-sm md:text-lg text-foreground/70 mb-6 sm:mb-8 px-2">
-              With our senior discount, a 2-hour job costs just $80-$90 instead of $100
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-              <AnimatedCounter target={15} label="Seniors Served This Month" suffix="+" />
-              <AnimatedCounter target={20} label="Average Savings Per Job" suffix="%" />
-              <AnimatedCounter target={100} label="Satisfaction Rate" suffix="%" />
-            </div>
           </motion.div>
 
           {/* FAQ */}
@@ -512,20 +517,20 @@ export default function Home() {
             <div className="space-y-4 sm:space-y-6">
               {[
                 {
-                  q: "Is the 2-hour minimum for the same job?",
-                  a: "Yes, we offer a 2-hour minimum per visit. You can complete multiple jobs in those hours.",
+                  q: "How long does each package take?",
+                  a: "Basic Shine takes up to 2 hours, Deep Clean Deluxe takes up to 4 hours, and Move-In/Out cleaning is a full thorough clean depending on home size.",
                 },
                 {
-                  q: "Do you charge for travel?",
-                  a: "No additional travel charges within Cochrane. We believe in transparent, fair pricing.",
+                  q: "Do you use your own cleaning supplies?",
+                  a: "Yes, we bring professional-grade cleaning supplies. If you prefer specific products, please let us know in advance.",
                 },
                 {
-                  q: "What if the job takes less than 2 hours?",
-                  a: "You still pay the 2-hour minimum, but we'll use that time to complete additional small tasks if available.",
+                  q: "Are you available for recurring cleanings?",
+                  a: "Absolutely! Many customers prefer weekly or bi-weekly maintenance with our Basic Shine package. Contact us to set up a recurring schedule.",
                 },
                 {
-                  q: "Do materials cost extra?",
-                  a: "Basic materials are included. If your project requires special or premium materials, we'll discuss that upfront.",
+                  q: "Do you serve seniors with special care?",
+                  a: "Yes! We provide gentle, respectful service for seniors and can accommodate any special requests or accessibility needs.",
                 },
               ].map((faq, idx) => (
                 <motion.div
@@ -565,19 +570,19 @@ export default function Home() {
               {
                 icon: Phone,
                 title: "Phone",
-                content: "+1 (403) 555-1234",
-                action: "tel:+14035551234",
+                content: "705-274-9433",
+                action: "tel:705-274-9433",
               },
               {
                 icon: Mail,
                 title: "Email",
-                content: "info@allcarerepair.com",
-                action: "mailto:info@allcarerepair.com",
+                content: "allcarerepair@outlook.ca",
+                action: "mailto:allcarerepair@outlook.ca",
               },
               {
                 icon: MapPin,
                 title: "Location",
-                content: "Cochrane, Ontario, Canada",
+                content: "9 6th St, Cochrane, Ontario",
                 action: "#",
               },
             ].map((item, idx) => {
@@ -704,12 +709,12 @@ export default function Home() {
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                   >
                     <option value="general">General Inquiry</option>
-                    <option value="carpentry">Carpentry</option>
-                    <option value="drywall">Drywall & Painting</option>
-                    <option value="fixtures">Fixture Replacement</option>
-                    <option value="assembly">Assembly & Odd Jobs</option>
-                    <option value="maintenance">Seasonal Maintenance</option>
-                    <option value="cleaning">Cleaning</option>
+                    <option value="basic">Basic Shine Package</option>
+                    <option value="deluxe">Deep Clean Deluxe</option>
+                    <option value="moveout">Move-In / Move-Out</option>
+                    <option value="carpet">Carpet Shampoo</option>
+                    <option value="windows">Window Cleaning</option>
+                    <option value="addon">Add-On Services</option>
                   </select>
                 </motion.div>
 
@@ -775,8 +780,8 @@ export default function Home() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">Ready to Fix Something Today?</h2>
-          <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90">Join over 1000 happy homeowners who trust All Care Home Repair</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">Ready for a Sparkling Clean Home?</h2>
+          <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90">Join hundreds of happy homeowners who trust All Care Home Cleaning</p>
           <button
             onClick={() => {
               const element = document.querySelector("#contact")
@@ -784,7 +789,7 @@ export default function Home() {
             }}
             className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-colors font-semibold text-sm sm:text-base md:text-lg"
           >
-            Get Your Free Quote
+            Book Your Cleaning Today
           </button>
         </motion.div>
       </section>
