@@ -21,7 +21,7 @@ interface Service {
   details?: string[]
 }
 
-const services = [
+const cleaningServices = [
   {
     icon: "🏠",
     title: "Basic Shine Package",
@@ -65,6 +65,53 @@ const services = [
     details: ["Laundry or Dish Service – $25/hr", "Garage or Porch Cleanup – $50", "Custom add-ons available"],
   },
 ]
+
+const handymanServices = [
+  {
+    icon: "🔨",
+    title: "Small Carpentry & Repairs",
+    description: "Professional door and trim work",
+    image: "https://images.pexels.com/photos/3761418/pexels-photo-3761418.jpeg",
+    details: ["Door repairs & adjustments", "Trim installation & finish", "Shelving & brackets", "Wood repair & finishing"],
+  },
+  {
+    icon: "🎨",
+    title: "Drywall & Painting",
+    description: "Expert wall repair and painting",
+    image: "https://images.pexels.com/photos/15086184/pexels-photo-15086184.jpeg",
+    details: ["Hole & damage repair", "Texture application", "Interior painting", "Professional finish work"],
+  },
+  {
+    icon: "💡",
+    title: "Fixture & Electrical Installations",
+    description: "New fixtures and upgrades",
+    image: "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg",
+    details: ["Light fixture installation", "Ceiling fan replacement", "Faucet upgrades", "Outlet installation"],
+  },
+  {
+    icon: "🛠️",
+    title: "Furniture Assembly & Odd Jobs",
+    description: "Expert assembly and repairs",
+    image: "https://images.pexels.com/photos/3769714/pexels-photo-3769714.jpeg",
+    details: ["IKEA & furniture assembly", "Custom projects", "General handyman work", "Small renovations"],
+  },
+  {
+    icon: "🧰",
+    title: "Plumbing Basics",
+    description: "Basic plumbing repairs and fixtures",
+    image: "https://images.pexels.com/photos/3584992/pexels-photo-3584992.jpeg",
+    details: ["Faucet repairs & replacements", "Toilet seat installation", "Pipe fixes", "Basic leak repairs"],
+  },
+  {
+    icon: "🍂",
+    title: "Seasonal & Outdoor Maintenance",
+    description: "Keep your home ready year-round",
+    image: "https://images.pexels.com/photos/4513707/pexels-photo-4513707.jpeg",
+    details: ["Gutter cleaning & repair", "Weatherproofing", "Deck maintenance", "Seasonal prep"],
+  },
+]
+
+const services = cleaningServices
 
 const heroCarouselItems = [
   {
