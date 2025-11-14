@@ -87,8 +87,8 @@ export default function Contact() {
               {
                 icon: Mail,
                 title: "Email",
-                content: "allrepairservices@outlook.com",
-                action: "mailto:allrepairservices@outlook.com",
+                content: "allcarerepairservices@outlook.com",
+                action: "mailto:allcarerepairservices@outlook.com",
               },
               {
                 icon: MapPin,
