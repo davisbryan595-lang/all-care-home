@@ -87,7 +87,7 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-background/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-background/70 text-sm">© {currentYear} All Care Home Repair. All rights reserved.</p>
+            <p className="text-background/70 text-sm">© {currentYear} All Care Home Cleaning. All rights reserved.</p>
             <div className="flex gap-4">
               <a href="#" className="text-background/70 hover:text-accent transition-colors">
                 <Facebook className="w-5 h-5" />
