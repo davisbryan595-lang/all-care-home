@@ -81,19 +81,19 @@ export default function Contact() {
               {
                 icon: Phone,
                 title: "Phone",
-                content: "+1 (403) 555-1234",
-                action: "tel:+14035551234",
+                content: "705-274-9433",
+                action: "tel:705-274-9433",
               },
               {
                 icon: Mail,
                 title: "Email",
-                content: "info@allcarerepair.com",
-                action: "mailto:info@allcarerepair.com",
+                content: "allrepairservices@outlook.com",
+                action: "mailto:allrepairservices@outlook.com",
               },
               {
                 icon: MapPin,
                 title: "Location",
-                content: "Cochrane, Ontario, Canada",
+                content: "9 6th St, Cochrane, Ontario",
                 action: "#",
               },
             ].map((item, idx) => {

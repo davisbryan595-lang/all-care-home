@@ -153,9 +153,9 @@ export default function Home() {
             className="text-center text-white max-w-3xl mx-auto px-3 sm:px-4"
           >
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-balance leading-tight">RELIABLE • AFFORDABLE • DONE RIGHT EVERY TIME</h1>
-            <p className="text-base sm:text-lg md:text-2xl mb-4 sm:mb-6 text-gray-100">Your trusted local cleaning team</p>
+            <p className="text-base sm:text-lg md:text-2xl mb-4 sm:mb-6 text-gray-100">Your trusted local cleaning team and handy man</p>
             <p className="text-xs sm:text-sm md:text-base mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto line-clamp-4 sm:line-clamp-none">
-              All Care Home Cleaning provides professional, affordable home cleaning services to homeowners across Cochrane, Ontario and the surrounding areas. Serving the community with care and excellence.
+              All Care Home Repairs provides professional, affordable home repairing services to homeowners across Cochrane, Ontario and the surrounding areas. Serving the community with care and excellence.
             </p>
             <div className="flex flex-col gap-3 sm:gap-4">
               <button
@@ -247,7 +247,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground text-balance">All Care Home Cleaning Packages</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground text-balance">All Care Home Services Packages</h2>
             <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto px-2">
               Choose the perfect cleaning package for your home, or customize with add-on services
             </p>
@@ -281,13 +281,13 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">Our Story</h2>
             <div className="space-y-3 sm:space-y-4">
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                All Care Home Cleaning was founded on a simple principle: homeowners deserve professional, reliable cleaning at fair prices. Whether you're a busy professional, a senior looking for trustworthy help, or anyone in between, we're here to take the stress out of housecleaning.
+                All Care Home Services was founded on a simple principle: homeowners deserve professional, reliable service at fair prices. Whether you're a busy professional, a senior looking for trustworthy help, or anyone in between, we're here to take the stress out of housecleaning.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
                 With years of hands-on experience, our team has helped thousands of homes sparkle across Cochrane and the surrounding areas. We believe that attention to detail, respect for your home, and genuine care are the foundations of a great cleaning service.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                Today, we're proud to serve families, seniors, and businesses who value reliability and fair pricing. Whether you need a weekly maintenance clean or a deep clean before an important event, All Care Home Cleaning is here for you.
+                Today, we're proud to serve families, seniors, and businesses who value reliability and fair pricing. Whether you need a weekly maintenance clean or a deep clean before an important event, All Care Home Services is here for you.
               </p>
             </div>
           </motion.div>
@@ -576,8 +576,8 @@ export default function Home() {
               {
                 icon: Mail,
                 title: "Email",
-                content: "allcarerepair@outlook.ca",
-                action: "mailto:allcarerepair@outlook.ca",
+                content: "allrepairservices@outlook.com",
+                action: "mailto:allrepairservices@outlook.com",
               },
               {
                 icon: MapPin,
@@ -781,7 +781,7 @@ export default function Home() {
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">Ready for a Sparkling Clean Home?</h2>
-          <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90">Join hundreds of happy homeowners who trust All Care Home Cleaning</p>
+          <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 opacity-90">Join hundreds of happy homeowners who trust All Care Home Services</p>
           <button
             onClick={() => {
               const element = document.querySelector("#contact")

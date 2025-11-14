@@ -40,7 +40,7 @@ export default function About() {
             <h2 className="text-4xl font-bold text-foreground mb-6">Our Story</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-foreground/70 mb-4 leading-relaxed">
-                All Care Home Repair was founded on a simple principle: homeowners deserve honest, reliable service at
+                All Care Home Services was founded by Ian Emans on a simple principle: homeowners deserve honest, reliable service at
                 fair prices. Whether you're a busy professional, a senior looking for trustworthy help, or anyone in
                 between, we're here to take the stress out of home repairs.
               </p>
