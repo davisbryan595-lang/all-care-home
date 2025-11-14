@@ -26,43 +26,85 @@ const services = [
     icon: "🏠",
     title: "Basic Shine Package",
     description: "Perfect for regular upkeep (up to 2 hours)",
-    image: "https://images.pexels.com/photos/6195125/pexels-photo-6195125.jpeg",
+    image: "https://images.pexels.com/photos/6195196/pexels-photo-6195196.jpeg",
     details: ["Dust all surfaces & baseboards", "Vacuum & mop floors", "Clean kitchen counters & sinks", "Wipe down bathroom surfaces", "Empty all garbage bins"],
   },
   {
     icon: "✨",
     title: "Deep Clean Deluxe",
     description: "Get your home sparkling again (up to 4 hours)",
-    image: "https://images.pexels.com/photos/6474300/pexels-photo-6474300.jpeg",
+    image: "https://images.pexels.com/photos/4108712/pexels-photo-4108712.jpeg",
     details: ["Includes everything in the Basic Shine", "Inside fridge & oven", "Detailed bathroom scrub", "Window sills & door frames", "Light fixtures & ceiling fans"],
   },
   {
     icon: "🚚",
     title: "Move-In / Move-Out Package",
     description: "Perfect for landlords, tenants, or new homeowners",
-    image: "https://images.pexels.com/photos/6473973/pexels-photo-6473973.jpeg",
+    image: "https://images.pexels.com/photos/7415106/pexels-photo-7415106.jpeg",
     details: ["Full top-to-bottom cleaning", "Inside cupboards, closets & appliances", "Walls & trim spot-cleaned", "Windows (interior)", "Floors detailed and polished"],
   },
   {
     icon: "🧤",
     title: "Carpet Shampoo",
     description: "Deep clean your carpets",
-    image: "https://images.pexels.com/photos/5217124/pexels-photo-5217124.jpeg",
+    image: "https://images.pexels.com/photos/6466485/pexels-photo-6466485.jpeg",
     details: ["Professional grade cleaning", "Stain treatment", "Quick drying", "$40 per room"],
   },
   {
     icon: "🪟",
     title: "Window Cleaning",
     description: "Crystal clear windows inside and out",
-    image: "https://images.pexels.com/photos/5691531/pexels-photo-5691531.jpeg",
+    image: "https://images.pexels.com/photos/34668154/pexels-photo-34668154.jpeg",
     details: ["Interior window cleaning", "Exterior window cleaning", "Window sills & frames", "$50 for exterior"],
   },
   {
     icon: "🧹",
     title: "Add-On Services",
     description: "Customize your cleaning package",
-    image: "https://images.pexels.com/photos/11229483/pexels-photo-11229483.jpeg",
+    image: "https://images.pexels.com/photos/4239104/pexels-photo-4239104.jpeg",
     details: ["Laundry or Dish Service – $25/hr", "Garage or Porch Cleanup – $50", "Custom add-ons available"],
+  },
+  {
+    icon: "🔨",
+    title: "Small Carpentry & Repairs",
+    description: "Professional door and trim work",
+    image: "https://images.pexels.com/photos/12504894/pexels-photo-12504894.jpeg",
+    details: ["Door repairs & adjustments", "Trim installation & finish", "Shelving & brackets", "Wood repair & finishing"],
+  },
+  {
+    icon: "🎨",
+    title: "Drywall & Painting",
+    description: "Expert wall repair and painting",
+    image: "https://images.pexels.com/photos/6474133/pexels-photo-6474133.jpeg",
+    details: ["Hole & damage repair", "Texture application", "Interior painting", "Professional finish work"],
+  },
+  {
+    icon: "💡",
+    title: "Fixture & Electrical Installations",
+    description: "New fixtures and upgrades",
+    image: "https://images.pexels.com/photos/3616768/pexels-photo-3616768.jpeg",
+    details: ["Light fixture installation", "Ceiling fan replacement", "Faucet upgrades", "Outlet installation"],
+  },
+  {
+    icon: "🛠️",
+    title: "Furniture Assembly & Odd Jobs",
+    description: "Expert assembly and repairs",
+    image: "https://images.pexels.com/photos/5486895/pexels-photo-5486895.jpeg",
+    details: ["IKEA & furniture assembly", "Custom projects", "General handyman work", "Small renovations"],
+  },
+  {
+    icon: "🧰",
+    title: "Plumbing Basics",
+    description: "Basic plumbing repairs and fixtures",
+    image: "https://images.pexels.com/photos/10961064/pexels-photo-10961064.jpeg",
+    details: ["Faucet repairs & replacements", "Toilet seat installation", "Pipe fixes", "Basic leak repairs"],
+  },
+  {
+    icon: "🍂",
+    title: "Seasonal & Outdoor Maintenance",
+    description: "Keep your home ready year-round",
+    image: "https://images.pexels.com/photos/20113440/pexels-photo-20113440.jpeg",
+    details: ["Gutter cleaning & repair", "Weatherproofing", "Deck maintenance", "Seasonal prep"],
   },
 ]
 
@@ -247,9 +289,9 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground text-balance">All Care Home Services Packages</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-foreground text-balance">All Care Home Services</h2>
             <p className="text-sm sm:text-base md:text-lg text-foreground/70 max-w-2xl mx-auto px-2">
-              Choose the perfect cleaning package for your home, or customize with add-on services
+              Professional cleaning and handyman services to keep your home in perfect condition
             </p>
           </motion.div>
 
@@ -412,62 +454,108 @@ export default function Home() {
               <p className="text-sm sm:text-base md:text-lg text-foreground/70">Choose the perfect package for your needs</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-              <div className="bg-primary/5 rounded-lg p-6">
-                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Basic Shine</h4>
-                <p className="text-3xl font-bold text-accent mb-4">$85</p>
-                <p className="text-sm text-foreground/70 mb-4">Up to 2 hours</p>
-                <ul className="space-y-2">
-                  {[
-                    "Dust all surfaces",
-                    "Vacuum & mop floors",
-                    "Clean kitchen & bathroom",
-                    "Empty garbage bins",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="mb-8 sm:mb-12">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">Cleaning Packages</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <div className="bg-primary/5 rounded-lg p-6">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Basic Shine</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$85</p>
+                  <p className="text-sm text-foreground/70 mb-4">Up to 2 hours</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Dust all surfaces",
+                      "Vacuum & mop floors",
+                      "Clean kitchen & bathroom",
+                      "Empty garbage bins",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <div className="bg-primary/10 rounded-lg p-6 border-2 border-accent">
-                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Deep Clean Deluxe</h4>
-                <p className="text-3xl font-bold text-accent mb-4">$160</p>
-                <p className="text-sm text-foreground/70 mb-4">Up to 4 hours</p>
-                <ul className="space-y-2">
-                  {[
-                    "Everything in Basic Shine",
-                    "Inside fridge & oven",
-                    "Detailed bathroom scrub",
-                    "Window sills & light fixtures",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <div className="bg-primary/10 rounded-lg p-6 border-2 border-accent">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Deep Clean Deluxe</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$160</p>
+                  <p className="text-sm text-foreground/70 mb-4">Up to 4 hours</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Everything in Basic Shine",
+                      "Inside fridge & oven",
+                      "Detailed bathroom scrub",
+                      "Window sills & light fixtures",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <div className="bg-primary/5 rounded-lg p-6">
-                <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Move-In/Out</h4>
-                <p className="text-3xl font-bold text-accent mb-4">$220</p>
-                <p className="text-sm text-foreground/70 mb-4">Full top-to-bottom</p>
-                <ul className="space-y-2">
-                  {[
-                    "Complete deep clean",
-                    "Inside all cupboards",
-                    "Walls & trim cleaned",
-                    "Floors polished",
-                  ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span className="text-xs sm:text-sm text-foreground">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="bg-primary/5 rounded-lg p-6">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Move-In/Out</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$220</p>
+                  <p className="text-sm text-foreground/70 mb-4">Full top-to-bottom</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Complete deep clean",
+                      "Inside all cupboards",
+                      "Walls & trim cleaned",
+                      "Floors polished",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">Handyman Services</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                <div className="bg-primary/5 rounded-lg p-6">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Standard Handyman</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$60/hr</p>
+                  <p className="text-sm text-foreground/70 mb-4">2-hour minimum</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Door repairs & adjustments",
+                      "Fixture installations",
+                      "Furniture assembly",
+                      "General repairs",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="bg-primary/10 rounded-lg p-6 border-2 border-accent">
+                  <h4 className="text-lg sm:text-xl font-bold text-foreground mb-2">Premium Handyman</h4>
+                  <p className="text-3xl font-bold text-accent mb-4">$75/hr</p>
+                  <p className="text-sm text-foreground/70 mb-4">2-hour minimum</p>
+                  <ul className="space-y-2">
+                    {[
+                      "Everything in Standard",
+                      "Drywall & painting",
+                      "Plumbing basics",
+                      "Carpentry work",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                        <span className="text-xs sm:text-sm text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -709,12 +797,22 @@ export default function Home() {
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                   >
                     <option value="general">General Inquiry</option>
-                    <option value="basic">Basic Shine Package</option>
-                    <option value="deluxe">Deep Clean Deluxe</option>
-                    <option value="moveout">Move-In / Move-Out</option>
-                    <option value="carpet">Carpet Shampoo</option>
-                    <option value="windows">Window Cleaning</option>
-                    <option value="addon">Add-On Services</option>
+                    <optgroup label="Cleaning Services">
+                      <option value="basic">Basic Shine Package</option>
+                      <option value="deluxe">Deep Clean Deluxe</option>
+                      <option value="moveout">Move-In / Move-Out</option>
+                      <option value="carpet">Carpet Shampoo</option>
+                      <option value="windows">Window Cleaning</option>
+                      <option value="addon">Add-On Services</option>
+                    </optgroup>
+                    <optgroup label="Handyman Services">
+                      <option value="carpentry">Carpentry & Repairs</option>
+                      <option value="drywall">Drywall & Painting</option>
+                      <option value="fixtures">Fixtures & Electrical</option>
+                      <option value="assembly">Furniture Assembly</option>
+                      <option value="plumbing">Plumbing Basics</option>
+                      <option value="seasonal">Seasonal Maintenance</option>
+                    </optgroup>
                   </select>
                 </motion.div>
 
