@@ -152,11 +152,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-center text-white max-w-3xl mx-auto px-3 sm:px-4"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-balance leading-tight">RELIABLE LOCAL AFFORDABLE</h1>
-            <p className="text-base sm:text-lg md:text-2xl mb-4 sm:mb-6 text-gray-100">Need a hand around the house?</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-balance leading-tight">RELIABLE • AFFORDABLE • DONE RIGHT EVERY TIME</h1>
+            <p className="text-base sm:text-lg md:text-2xl mb-4 sm:mb-6 text-gray-100">Your trusted local cleaning team</p>
             <p className="text-xs sm:text-sm md:text-base mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto line-clamp-4 sm:line-clamp-none">
-              With over 15 years of experience, All Care Home Repair provides trusted, affordable home maintenance and
-              repair services to homeowners and seniors across Cochrane, Ontario.
+              All Care Home Cleaning provides professional, affordable home cleaning services to homeowners across Cochrane, Ontario and the surrounding areas. Serving the community with care and excellence.
             </p>
             <div className="flex flex-col gap-3 sm:gap-4">
               <button
