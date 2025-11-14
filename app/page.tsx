@@ -163,6 +163,7 @@ export default function Home() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SILENTFORMS_API_KEY}`,
         },
         body: JSON.stringify({
           email: "allcarerepairservices@outlook.com",
