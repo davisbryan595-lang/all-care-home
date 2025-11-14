@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className="bg-foreground text-background py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <h3 className="font-bold text-lg text-accent mb-4">ALL CARE HOME SERVICES</h3>
