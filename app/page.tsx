@@ -281,18 +281,13 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">Our Story</h2>
             <div className="space-y-3 sm:space-y-4">
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                All Care Home Repair was founded on a simple principle: homeowners deserve honest, reliable service at
-                fair prices. Whether you're a busy professional, a senior looking for trustworthy help, or anyone in
-                between, we're here to take the stress out of home repairs.
+                All Care Home Cleaning was founded on a simple principle: homeowners deserve professional, reliable cleaning at fair prices. Whether you're a busy professional, a senior looking for trustworthy help, or anyone in between, we're here to take the stress out of housecleaning.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                With over 15 years of hands-on experience, our team has completed thousands of repairs across Cochrane
-                and the surrounding areas. We believe that quality craftsmanship, respect for your home, and genuine
-                care are the foundations of a great service business.
+                With years of hands-on experience, our team has helped thousands of homes sparkle across Cochrane and the surrounding areas. We believe that attention to detail, respect for your home, and genuine care are the foundations of a great cleaning service.
               </p>
               <p className="text-sm sm:text-base md:text-lg text-foreground/70 leading-relaxed">
-                Today, we're proud to serve families, seniors, and businesses who value reliability and fair pricing.
-                And we're still growing, thanks to customers like you.
+                Today, we're proud to serve families, seniors, and businesses who value reliability and fair pricing. Whether you need a weekly maintenance clean or a deep clean before an important event, All Care Home Cleaning is here for you.
               </p>
             </div>
           </motion.div>
