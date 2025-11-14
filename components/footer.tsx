@@ -48,7 +48,7 @@ export function Footer() {
           >
             <h4 className="font-semibold mb-4 text-accent">Services</h4>
             <ul className="space-y-2">
-              {["Carpentry", "Drywall & Painting", "Fixtures", "Assembly", "Maintenance", "Cleaning"].map((service) => (
+              {["Basic Shine Package", "Deep Clean Deluxe", "Move-In/Move-Out", "Carpet Shampoo", "Window Cleaning", "Add-Ons"].map((service) => (
                 <li key={service}>
                   <span className="text-background/70 text-sm">{service}</span>
                 </li>
