@@ -13,9 +13,9 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <h3 className="font-bold text-lg text-accent mb-4">ALL CARE</h3>
+            <h3 className="font-bold text-lg text-accent mb-4">ALL CARE HOME CLEANING</h3>
             <p className="text-background/80 text-sm">
-              Trusted home repair services in Cochrane, Ontario. Reliable, affordable, and honest.
+              Professional home cleaning services in Cochrane, Ontario. Reliable, affordable, and done right every time.
             </p>
           </motion.div>
 
