@@ -66,19 +66,19 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-accent" />
-                <a href="tel:+14035551234" className="text-background/70 hover:text-accent text-sm">
-                  +1 (403) 555-1234
+                <a href="tel:705-274-9433" className="text-background/70 hover:text-accent text-sm">
+                  705-274-9433
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-accent" />
-                <a href="mailto:info@allcarerepair.com" className="text-background/70 hover:text-accent text-sm">
-                  info@allcarerepair.com
+                <a href="mailto:allcarerepair@outlook.ca" className="text-background/70 hover:text-accent text-sm">
+                  allcarerepair@outlook.ca
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-accent" />
-                <span className="text-background/70 text-sm">Cochrane, Ontario, Canada</span>
+                <span className="text-background/70 text-sm">9 6th St, Cochrane, Ontario</span>
               </div>
             </div>
           </motion.div>
