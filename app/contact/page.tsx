@@ -32,22 +32,40 @@ export default function Contact() {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitted(true)
-      setIsLoading(false)
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        service: "general",
-        date: "",
-        time: "",
-        message: "",
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       })
 
-      setTimeout(() => setSubmitted(false), 5000)
-    }, 1500)
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          service: "general",
+          date: "",
+          time: "",
+          message: "",
+        })
+
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        console.error('Form submission error:', data.error)
+        alert('Failed to submit form. Please try again.')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('Failed to submit form. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
