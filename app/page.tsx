@@ -709,12 +709,12 @@ export default function Home() {
                     className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
                   >
                     <option value="general">General Inquiry</option>
-                    <option value="carpentry">Carpentry</option>
-                    <option value="drywall">Drywall & Painting</option>
-                    <option value="fixtures">Fixture Replacement</option>
-                    <option value="assembly">Assembly & Odd Jobs</option>
-                    <option value="maintenance">Seasonal Maintenance</option>
-                    <option value="cleaning">Cleaning</option>
+                    <option value="basic">Basic Shine Package</option>
+                    <option value="deluxe">Deep Clean Deluxe</option>
+                    <option value="moveout">Move-In / Move-Out</option>
+                    <option value="carpet">Carpet Shampoo</option>
+                    <option value="windows">Window Cleaning</option>
+                    <option value="addon">Add-On Services</option>
                   </select>
                 </motion.div>
 
