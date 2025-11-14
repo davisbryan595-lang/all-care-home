@@ -158,21 +158,49 @@ export default function Home() {
     e.preventDefault()
     setIsLoading(true)
 
-    setTimeout(() => {
-      setSubmitted(true)
-      setIsLoading(false)
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        service: "general",
-        date: "",
-        time: "",
-        message: "",
+    try {
+      const response = await fetch("https://api.silentforms.com/api/v1/forms/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          form_id: "allcare",
+          to: "allcarerepairservices@outlook.com",
+          subject: `New Quote Request from ${formData.name}`,
+          data: {
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            service: formData.service,
+            date: formData.date,
+            time: formData.time,
+            message: formData.message,
+          },
+        }),
       })
 
-      setTimeout(() => setSubmitted(false), 5000)
-    }, 1500)
+      if (response.ok) {
+        setSubmitted(true)
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          service: "general",
+          date: "",
+          time: "",
+          message: "",
+        })
+
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        console.error("Form submission failed")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
