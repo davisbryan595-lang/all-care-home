@@ -155,7 +155,7 @@ export default function Home() {
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-2 sm:mb-4 text-balance leading-tight">RELIABLE • AFFORDABLE • DONE RIGHT EVERY TIME</h1>
             <p className="text-base sm:text-lg md:text-2xl mb-4 sm:mb-6 text-gray-100">Your trusted local cleaning team and handy man</p>
             <p className="text-xs sm:text-sm md:text-base mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto line-clamp-4 sm:line-clamp-none">
-              All Care Home Repairs provides professional, affordable home cleaning services to homeowners across Cochrane, Ontario and the surrounding areas. Serving the community with care and excellence.
+              All Care Home Repairs provides professional, affordable home repairing services to homeowners across Cochrane, Ontario and the surrounding areas. Serving the community with care and excellence.
             </p>
             <div className="flex flex-col gap-3 sm:gap-4">
               <button
