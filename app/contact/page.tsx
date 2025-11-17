@@ -41,7 +41,7 @@ export default function Contact() {
         },
         body: JSON.stringify({
           access_key: accessKey,
-          to_email: "blkchild1970@gmail.com",
+          to_email: "allcarerepairservices@outlook.com",
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
