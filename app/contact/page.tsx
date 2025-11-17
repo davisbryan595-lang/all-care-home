@@ -33,15 +33,12 @@ export default function Contact() {
     setIsLoading(true)
 
     try {
-      const accessKey = "551cee39c731b8fbd09b8bfeb8b47b02d5adff973b7ad799d3e0a7b1083f026d"
-      const response = await fetch("https://api.silentforms.com/v1/submissions", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          access_key: accessKey,
-          to_email: "allcarerepairservices@outlook.com",
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
