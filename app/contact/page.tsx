@@ -33,17 +33,15 @@ export default function Contact() {
     setIsLoading(true)
 
     try {
-      const response = await fetch("https://silentforms.com/api/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SILENTFORMS_API_KEY}`,
         },
         body: JSON.stringify({
-          email: "allcarerepairservices@outlook.com",
           name: formData.name,
           phone: formData.phone,
-          sender_email: formData.email,
+          email: formData.email,
           service: formData.service,
           date: formData.date,
           time: formData.time,
