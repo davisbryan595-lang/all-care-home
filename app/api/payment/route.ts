@@ -23,6 +23,7 @@ export async function POST(request: NextRequest) {
       message,
     } = body
 
+    // Validation
     if (!paymentIntentId || !amount || !name || !email || !phone) {
       return NextResponse.json(
         { error: "Missing required booking information" },
@@ -30,12 +31,39 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    if (amount <= 0) {
+      return NextResponse.json(
+        { error: "Invalid booking amount" },
+        { status: 400 }
+      )
+    }
+
     // Verify the payment intent with Stripe
-    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId)
+    let paymentIntent: Stripe.PaymentIntent
+    try {
+      paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId)
+    } catch (stripeError) {
+      console.error("Failed to retrieve payment intent:", stripeError)
+      return NextResponse.json(
+        { error: "Unable to verify payment. Please contact support." },
+        { status: 400 }
+      )
+    }
 
     if (paymentIntent.status !== "succeeded") {
       return NextResponse.json(
-        { error: "Payment not completed successfully" },
+        { error: `Payment status is ${paymentIntent.status}. Only succeeded payments can be confirmed.` },
+        { status: 400 }
+      )
+    }
+
+    // Verify amount matches
+    if (paymentIntent.amount !== Math.round(amount)) {
+      console.warn(
+        `Amount mismatch: expected ${amount}, got ${paymentIntent.amount}`
+      )
+      return NextResponse.json(
+        { error: "Payment amount mismatch. Please contact support." },
         { status: 400 }
       )
     }
@@ -63,10 +91,8 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to customer
     try {
-      // You can integrate with an email service like Resend, SendGrid, or Nodemailer
-      // For now, we'll just log it
       console.log(`Sending confirmation email to ${email}`)
-
+      // You can integrate with an email service like Resend, SendGrid, or Nodemailer
       // Example with a custom endpoint (uncomment and configure as needed)
       // await fetch(process.env.NEXT_PUBLIC_EMAIL_SERVICE_URL || "", {
       //   method: "POST",
@@ -113,6 +139,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: error.message },
         { status: 400 }
+      )
+    }
+
+    if (error instanceof Stripe.errors.StripeAuthenticationError) {
+      return NextResponse.json(
+        { error: "Authentication failed. Please try again." },
+        { status: 401 }
       )
     }
 

@@ -138,7 +138,7 @@ export default function FlipCardForm() {
         .flip-card-inner {
           position: relative;
           width: 100%;
-          min-height: 650px;
+          min-height: auto;
           transition: transform 0.6s;
           transform-style: preserve-3d;
         }
@@ -148,22 +148,11 @@ export default function FlipCardForm() {
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
           width: 100%;
-          min-height: 650px;
+          min-height: auto;
         }
 
         .flip-card-back {
           transform: rotateY(180deg);
-        }
-
-        @media (max-width: 640px) {
-          .flip-card-inner {
-            min-height: auto;
-          }
-
-          .flip-card-front,
-          .flip-card-back {
-            min-height: auto;
-          }
         }
       `}</style>
     </div>
