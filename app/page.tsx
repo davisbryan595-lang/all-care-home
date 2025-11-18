@@ -9,6 +9,8 @@ import { ServiceCard } from "@/components/service-card"
 import { Carousel } from "@/components/carousel"
 import { Gallery } from "@/components/gallery"
 import { ServiceModal } from "@/components/service-modal"
+import FlipCardForm from "@/components/flip-card-form"
+import { StripeProvider } from "@/components/stripe-provider"
 import { Phone, Mail, MapPin, Clock, Heart, Award, Users, Shield, Check } from "lucide-react"
 import { useState } from "react"
 import type React from "react"
@@ -127,19 +129,6 @@ export default function Home() {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    service: "general",
-    date: "",
-    time: "",
-    message: "",
-  })
-
-  const [submitted, setSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
   const handleLearnMore = (service: Service) => {
     setSelectedService(service)
     setIsModalOpen(true)
@@ -147,57 +136,6 @@ export default function Home() {
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-
-    try {
-      const response = await fetch("https://silentforms.com/api/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SILENTFORMS_API_KEY}`,
-        },
-        body: JSON.stringify({
-          email: "allcarerepairservices@outlook.com",
-          name: formData.name,
-          phone: formData.phone,
-          sender_email: formData.email,
-          service: formData.service,
-          date: formData.date,
-          time: formData.time,
-          message: formData.message,
-        }),
-      })
-
-      if (response.ok) {
-        setSubmitted(true)
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          service: "general",
-          date: "",
-          time: "",
-          message: "",
-        })
-
-        setTimeout(() => setSubmitted(false), 5000)
-      } else {
-        console.error("Form submission failed")
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error)
-    } finally {
-      setIsLoading(false)
-    }
   }
 
   return (
@@ -732,165 +670,16 @@ export default function Home() {
             <p className="text-sm sm:text-base md:text-lg">Sunday: By appointment only</p>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* 3D Flip Card Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl mx-auto px-2 sm:px-0"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center">Request a Quote</h3>
-
-            {submitted && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-primary/10 border-2 border-primary rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 text-center"
-              >
-                <p className="text-sm sm:text-base md:text-lg font-semibold text-primary">
-                  ✅ Thank you! We'll contact you shortly to confirm your appointment.
-                </p>
-              </motion.div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
-                    placeholder="Your name"
-                  />
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Phone *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
-                    placeholder="(403) 555-1234"
-                  />
-                </motion.div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-              >
-                <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Email *</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
-                  placeholder="your@email.com"
-                />
-              </motion.div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Service Type *</label>
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
-                  >
-                    <option value="general">General Inquiry</option>
-                    <optgroup label="Cleaning Services">
-                      <option value="basic">Basic Shine Package</option>
-                      <option value="deluxe">Deep Clean Deluxe</option>
-                      <option value="moveout">Move-In / Move-Out</option>
-                      <option value="carpet">Carpet Shampoo</option>
-                      <option value="windows">Window Cleaning</option>
-                      <option value="addon">Add-On Services</option>
-                    </optgroup>
-                    <optgroup label="Handyman Services">
-                      <option value="carpentry">Carpentry & Repairs</option>
-                      <option value="drywall">Drywall & Painting</option>
-                      <option value="fixtures">Fixtures & Electrical</option>
-                      <option value="assembly">Furniture Assembly</option>
-                      <option value="plumbing">Plumbing Basics</option>
-                      <option value="seasonal">Seasonal Maintenance</option>
-                    </optgroup>
-                  </select>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Preferred Date</label>
-                  <input
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm sm:text-base"
-                  />
-                </motion.div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-              >
-                <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5 sm:mb-2">Additional Details</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors resize-none text-sm sm:text-base"
-                  rows={4}
-                  placeholder="Tell us about your project or any special requirements..."
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full px-6 py-2.5 sm:py-3 bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base md:text-lg font-semibold rounded-lg transition-colors disabled:opacity-50"
-                >
-                  {isLoading ? "Sending..." : "Get Your Free Quote"}
-                </button>
-              </motion.div>
-
-              <p className="text-center text-xs sm:text-sm text-foreground/70">
-                We'll respond to your inquiry within 2 hours during business hours
-              </p>
-            </form>
+            <StripeProvider>
+              <FlipCardForm />
+            </StripeProvider>
           </motion.div>
         </div>
       </section>

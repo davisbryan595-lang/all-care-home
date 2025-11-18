@@ -2,75 +2,14 @@
 
 import type React from "react"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { Button } from "@/components/ui/button"
+import FlipCardForm from "@/components/flip-card-form"
+import { StripeProvider } from "@/components/stripe-provider"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    service: "general",
-    date: "",
-    time: "",
-    message: "",
-  })
-
-  const [submitted, setSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
-          email: formData.email,
-          service: formData.service,
-          date: formData.date,
-          time: formData.time,
-          message: formData.message,
-        }),
-      })
-
-      if (response.ok) {
-        setSubmitted(true)
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          service: "general",
-          date: "",
-          time: "",
-          message: "",
-        })
-
-        setTimeout(() => setSubmitted(false), 5000)
-      } else {
-        console.error("Form submission failed")
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   return (
     <>
@@ -152,155 +91,16 @@ export default function Contact() {
             <p className="text-lg">Sunday: By appointment only</p>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* 3D Flip Card Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-2xl mx-auto"
+            className="max-w-2xl mx-auto px-2 sm:px-0"
           >
-            <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Request a Quote</h2>
-
-            {submitted && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="bg-primary/10 border-2 border-primary rounded-lg p-6 mb-8 text-center"
-              >
-                <p className="text-lg font-semibold text-primary">
-                  ✅ Thank you! We'll contact you shortly to confirm your appointment.
-                </p>
-              </motion.div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <label className="block text-sm font-medium text-foreground mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-card focus:border-primary focus:outline-none transition-colors"
-                    placeholder="Your name"
-                  />
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                  <label className="block text-sm font-medium text-foreground mb-2">Phone *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-card focus:border-primary focus:outline-none transition-colors"
-                    placeholder="(403) 555-1234"
-                  />
-                </motion.div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-              >
-                <label className="block text-sm font-medium text-foreground mb-2">Email *</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-card focus:border-primary focus:outline-none transition-colors"
-                  placeholder="your@email.com"
-                />
-              </motion.div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <label className="block text-sm font-medium text-foreground mb-2">Service Type *</label>
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-card focus:border-primary focus:outline-none transition-colors"
-                  >
-                    <option value="general">General Inquiry</option>
-                    <option value="carpentry">Carpentry</option>
-                    <option value="drywall">Drywall & Painting</option>
-                    <option value="fixtures">Fixture Replacement</option>
-                    <option value="assembly">Assembly & Odd Jobs</option>
-                    <option value="maintenance">Seasonal Maintenance</option>
-                    <option value="cleaning">Cleaning</option>
-                  </select>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <label className="block text-sm font-medium text-foreground mb-2">Preferred Date</label>
-                  <input
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-card focus:border-primary focus:outline-none transition-colors"
-                  />
-                </motion.div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-              >
-                <label className="block text-sm font-medium text-foreground mb-2">Additional Details</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-card focus:border-primary focus:outline-none transition-colors resize-none"
-                  rows={5}
-                  placeholder="Tell us about your project or any special requirements..."
-                />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                <Button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 text-lg font-semibold"
-                >
-                  {isLoading ? "Sending..." : "Get Your Free Quote"}
-                </Button>
-              </motion.div>
-
-              <p className="text-center text-sm text-foreground/70">
-                We'll respond to your inquiry within 2 hours during business hours
-              </p>
-            </form>
+            <StripeProvider>
+              <FlipCardForm />
+            </StripeProvider>
           </motion.div>
         </div>
       </section>
