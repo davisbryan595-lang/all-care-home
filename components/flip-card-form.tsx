@@ -33,10 +33,6 @@ export default function FlipCardForm() {
     { value: "seasonal", label: "Seasonal Maintenance", price: 75 },
   ]
 
-  const handleTabClick = (tab: "contact" | "payment") => {
-    setActiveTab(tab)
-  }
-
   const handleServiceSelect = (value: string, price: number, formData: any) => {
     setSelectedService(value)
     setSelectedPrice(price)
@@ -52,34 +48,6 @@ export default function FlipCardForm() {
 
   return (
     <div className="flip-card-wrapper">
-      {/* Tab Navigation */}
-      <div className="flex gap-2 mb-6 bg-primary/5 p-2 rounded-lg">
-        <button
-          onClick={() => handleTabClick("contact")}
-          role="tab"
-          aria-selected={activeTab === "contact"}
-          className={`flex-1 py-2 px-4 rounded-lg font-semibold transition-all ${
-            activeTab === "contact"
-              ? "bg-primary text-primary-foreground"
-              : "text-foreground hover:bg-primary/10"
-          }`}
-        >
-          📋 Contact Form
-        </button>
-        <button
-          onClick={() => handleTabClick("payment")}
-          role="tab"
-          aria-selected={activeTab === "payment"}
-          className={`flex-1 py-2 px-4 rounded-lg font-semibold transition-all ${
-            activeTab === "payment"
-              ? "bg-accent text-accent-foreground"
-              : "text-foreground hover:bg-accent/10"
-          }`}
-        >
-          💳 Payment Form
-        </button>
-      </div>
-
       {/* 3D Flip Card */}
       <div className="flip-card-container">
         <motion.div
