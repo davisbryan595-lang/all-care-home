@@ -10,6 +10,7 @@ import { Carousel } from "@/components/carousel"
 import { Gallery } from "@/components/gallery"
 import { ServiceModal } from "@/components/service-modal"
 import FlipCardForm from "@/components/flip-card-form"
+import { StripeProvider } from "@/components/stripe-provider"
 import { Phone, Mail, MapPin, Clock, Heart, Award, Users, Shield, Check } from "lucide-react"
 import { useState } from "react"
 import type React from "react"
@@ -676,10 +677,9 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl mx-auto px-2 sm:px-0"
           >
-            <p className="text-center text-sm sm:text-base text-foreground/70 mb-6">
-              💳 Flip the card to book and pay online
-            </p>
-            <FlipCardForm />
+            <StripeProvider>
+              <FlipCardForm />
+            </StripeProvider>
           </motion.div>
         </div>
       </section>
