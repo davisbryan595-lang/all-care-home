@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import FlipCardForm from "@/components/flip-card-form"
+import { StripeProvider } from "@/components/stripe-provider"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
 export default function Contact() {
@@ -97,10 +98,9 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="max-w-2xl mx-auto px-2 sm:px-0"
           >
-            <p className="text-center text-sm sm:text-base text-foreground/70 mb-6">
-              💳 Flip the card to book and pay online
-            </p>
-            <FlipCardForm />
+            <StripeProvider>
+              <FlipCardForm />
+            </StripeProvider>
           </motion.div>
         </div>
       </section>
