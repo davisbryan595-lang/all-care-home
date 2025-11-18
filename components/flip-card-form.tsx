@@ -33,10 +33,6 @@ export default function FlipCardForm() {
     { value: "seasonal", label: "Seasonal Maintenance", price: 75 },
   ]
 
-  const handleTabClick = (tab: "contact" | "payment") => {
-    setActiveTab(tab)
-  }
-
   const handleServiceSelect = (value: string, price: number, formData: any) => {
     setSelectedService(value)
     setSelectedPrice(price)
