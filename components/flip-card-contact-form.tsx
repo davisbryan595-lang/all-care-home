@@ -13,7 +13,7 @@ interface ServiceOption {
 
 interface ContactFormFrontProps {
   serviceOptions: ServiceOption[]
-  onServiceSelect: (value: string, price: number) => void
+  onServiceSelect: (value: string, price: number, formData: any) => void
   isFlipped: boolean
 }
 
@@ -78,7 +78,7 @@ export default function ContactFormFront({
     if (formData.service) {
       const selected = serviceOptions.find((s) => s.value === formData.service)
       if (selected) {
-        onServiceSelect(selected.value, selected.price)
+        onServiceSelect(selected.value, selected.price, formData)
       }
     }
   }
@@ -261,7 +261,7 @@ export default function ContactFormFront({
           </motion.div>
 
           <p className="text-center text-xs text-foreground/70">
-            or flip the card to book and pay online
+            or switch to the Payment Form tab to book online
           </p>
         </form>
       </motion.div>
