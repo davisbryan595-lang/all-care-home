@@ -128,19 +128,6 @@ export default function Home() {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    service: "general",
-    date: "",
-    time: "",
-    message: "",
-  })
-
-  const [submitted, setSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
   const handleLearnMore = (service: Service) => {
     setSelectedService(service)
     setIsModalOpen(true)
@@ -148,57 +135,6 @@ export default function Home() {
 
   const handleCloseModal = () => {
     setIsModalOpen(false)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-
-    try {
-      const response = await fetch("https://silentforms.com/api/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.NEXT_PUBLIC_SILENTFORMS_API_KEY}`,
-        },
-        body: JSON.stringify({
-          email: "allcarerepairservices@outlook.com",
-          name: formData.name,
-          phone: formData.phone,
-          sender_email: formData.email,
-          service: formData.service,
-          date: formData.date,
-          time: formData.time,
-          message: formData.message,
-        }),
-      })
-
-      if (response.ok) {
-        setSubmitted(true)
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          service: "general",
-          date: "",
-          time: "",
-          message: "",
-        })
-
-        setTimeout(() => setSubmitted(false), 5000)
-      } else {
-        console.error("Form submission failed")
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error)
-    } finally {
-      setIsLoading(false)
-    }
   }
 
   return (
