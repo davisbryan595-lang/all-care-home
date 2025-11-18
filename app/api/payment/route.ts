@@ -1,109 +1,124 @@
 import { NextRequest, NextResponse } from "next/server"
+import Stripe from "stripe"
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
+  apiVersion: "2024-11-20",
+})
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
     const {
-      name,
-      email,
-      phone,
-      cardNumber,
-      expiryDate,
-      cvc,
+      paymentIntentId,
+      amount,
       service,
       serviceLabel,
-      amount,
       quantity,
       notes,
-    } = body
-
-    if (!name || !email || !phone || !cardNumber || !expiryDate || !cvc) {
-      return NextResponse.json(
-        { error: "Missing required payment information" },
-        { status: 400 }
-      )
-    }
-
-    if (!amount || amount <= 0) {
-      return NextResponse.json(
-        { error: "Invalid payment amount" },
-        { status: 400 }
-      )
-    }
-
-    // Here you would normally:
-    // 1. Validate the card information
-    // 2. Process the payment with a service like Stripe
-    // 3. Store the booking in your database
-    // 4. Send confirmation emails
-
-    // For now, we'll just log the payment and send a success response
-    console.log("Payment received:", {
       name,
       email,
       phone,
+      date,
+      message,
+    } = body
+
+    if (!paymentIntentId || !amount || !name || !email || !phone) {
+      return NextResponse.json(
+        { error: "Missing required booking information" },
+        { status: 400 }
+      )
+    }
+
+    // Verify the payment intent with Stripe
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId)
+
+    if (paymentIntent.status !== "succeeded") {
+      return NextResponse.json(
+        { error: "Payment not completed successfully" },
+        { status: 400 }
+      )
+    }
+
+    // Create booking record (in a real app, this would save to a database)
+    const booking = {
+      id: `BOOKING-${Date.now()}`,
+      paymentIntentId,
+      amount,
       service,
       serviceLabel,
-      amount,
       quantity,
-      timestamp: new Date().toISOString(),
-    })
+      notes,
+      customerName: name,
+      customerEmail: email,
+      customerPhone: phone,
+      preferredDate: date,
+      additionalInfo: message,
+      status: "confirmed",
+      createdAt: new Date().toISOString(),
+    }
 
-    // TODO: Replace this with actual Stripe integration
-    // const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-    // const paymentIntent = await stripe.paymentIntents.create({
-    //   amount: Math.round(amount * 100),
-    //   currency: 'cad',
-    //   receipt_email: email,
-    // });
+    // TODO: Save booking to database
+    console.log("Booking created:", booking)
 
     // Send confirmation email to customer
     try {
-      await fetch(process.env.NEXT_PUBLIC_API_EMAIL_ENDPOINT || "", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          to: email,
-          subject: "Booking Confirmation - All Care Home Services",
-          template: "booking-confirmation",
-          data: {
-            name,
-            service: serviceLabel,
-            amount,
-            quantity,
-            notes,
-          },
-        }),
-      }).catch(() => {
-        // Email endpoint not configured, continue anyway
-      })
-    } catch {
-      // Email sending failed, but payment was successful
+      // You can integrate with an email service like Resend, SendGrid, or Nodemailer
+      // For now, we'll just log it
+      console.log(`Sending confirmation email to ${email}`)
+
+      // Example with a custom endpoint (uncomment and configure as needed)
+      // await fetch(process.env.NEXT_PUBLIC_EMAIL_SERVICE_URL || "", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify({
+      //     to: email,
+      //     subject: "Booking Confirmation - All Care Home Services",
+      //     template: "booking-confirmation",
+      //     data: booking,
+      //   }),
+      // })
+    } catch (emailError) {
+      console.error("Error sending confirmation email:", emailError)
+      // Continue even if email fails
+    }
+
+    // Send notification email to business
+    try {
+      console.log("Sending notification to admin")
+      // Implement admin notification logic here
+    } catch (adminError) {
+      console.error("Error sending admin notification:", adminError)
+      // Continue even if admin notification fails
     }
 
     return NextResponse.json(
       {
         success: true,
-        message: "Payment processed successfully",
+        message: "Booking confirmed successfully",
         booking: {
-          id: `BOOKING-${Date.now()}`,
-          service,
-          amount,
-          quantity,
-          bookedAt: new Date().toISOString(),
+          id: booking.id,
+          service: booking.serviceLabel,
+          amount: booking.amount,
+          date: booking.preferredDate,
+          status: booking.status,
         },
       },
       { status: 200 }
     )
   } catch (error) {
-    console.error("Payment API error:", error)
+    console.error("Payment booking error:", error)
+
+    if (error instanceof Stripe.errors.StripeInvalidRequestError) {
+      return NextResponse.json(
+        { error: error.message },
+        { status: 400 }
+      )
+    }
 
     return NextResponse.json(
       {
-        error: "Failed to process payment",
+        error: "Failed to process booking",
         details: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 500 }
