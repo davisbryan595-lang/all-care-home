@@ -4,6 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import { ChevronLeft } from "lucide-react"
 
 interface ServiceOption {
@@ -12,11 +13,21 @@ interface ServiceOption {
   price: number
 }
 
+interface ContactData {
+  name: string
+  email: string
+  phone: string
+  service: string
+  date: string
+  message: string
+}
+
 interface PaymentFormBackProps {
   selectedService: string
   selectedPrice: number
   serviceOptions: ServiceOption[]
   onBack: () => void
+  contactData: ContactData
 }
 
 export default function PaymentFormBack({
@@ -24,20 +35,19 @@ export default function PaymentFormBack({
   selectedPrice,
   serviceOptions,
   onBack,
+  contactData,
 }: PaymentFormBackProps) {
+  const stripe = useStripe()
+  const elements = useElements()
+
   const [paymentData, setPaymentData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    cardNumber: "",
-    expiryDate: "",
-    cvc: "",
     quantity: 1,
     notes: "",
   })
 
   const [isProcessing, setIsProcessing] = useState(false)
   const [paymentSuccess, setPaymentSuccess] = useState(false)
+  const [paymentError, setPaymentError] = useState<string | null>(null)
 
   const selectedServiceLabel =
     serviceOptions.find((s) => s.value === selectedService)?.label || ""
@@ -49,16 +59,7 @@ export default function PaymentFormBack({
   ) => {
     let { name, value } = e.target
 
-    if (name === "cardNumber") {
-      value = value.replace(/\s/g, "").replace(/(\d{4})/g, "$1 ").trim()
-    } else if (name === "expiryDate") {
-      value = value.replace(/\D/g, "")
-      if (value.length >= 2) {
-        value = value.slice(0, 2) + "/" + value.slice(2, 4)
-      }
-    } else if (name === "cvc") {
-      value = value.replace(/\D/g, "").slice(0, 3)
-    } else if (name === "quantity") {
+    if (name === "quantity") {
       value = Math.max(1, parseInt(value) || 1).toString()
     }
 
@@ -67,44 +68,98 @@ export default function PaymentFormBack({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    if (!stripe || !elements) {
+      setPaymentError("Payment system not ready. Please refresh and try again.")
+      return
+    }
+
     setIsProcessing(true)
+    setPaymentError(null)
 
     try {
-      const response = await fetch("/api/payment", {
+      // Create payment intent on the server
+      const paymentIntentResponse = await fetch("/api/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          amount: Math.round(totalPrice * 100), // Convert to cents
           service: selectedService,
           serviceLabel: selectedServiceLabel,
-          amount: totalPrice,
           quantity: paymentData.quantity,
-          ...paymentData,
+          notes: paymentData.notes,
+          customerName: contactData.name,
+          customerEmail: contactData.email,
+          customerPhone: contactData.phone,
+          preferredDate: contactData.date,
         }),
       })
 
-      if (response.ok) {
+      if (!paymentIntentResponse.ok) {
+        throw new Error("Failed to create payment intent")
+      }
+
+      const { clientSecret } = await paymentIntentResponse.json()
+
+      // Confirm the payment with the card element
+      const cardElement = elements.getElement(CardElement)
+      if (!cardElement) {
+        throw new Error("Card element not found")
+      }
+
+      const result = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: {
+            name: contactData.name,
+            email: contactData.email,
+            phone: contactData.phone,
+          },
+        },
+      })
+
+      if (result.error) {
+        setPaymentError(result.error.message || "Payment failed. Please try again.")
+        setIsProcessing(false)
+        return
+      }
+
+      if (result.paymentIntent?.status === "succeeded") {
         setPaymentSuccess(true)
+
+        // Save booking to database
+        await fetch("/api/payment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            paymentIntentId: result.paymentIntent.id,
+            amount: totalPrice,
+            service: selectedService,
+            serviceLabel: selectedServiceLabel,
+            quantity: paymentData.quantity,
+            notes: paymentData.notes,
+            ...contactData,
+          }),
+        })
+
         setTimeout(() => {
           setPaymentSuccess(false)
           onBack()
           setPaymentData({
-            name: "",
-            email: "",
-            phone: "",
-            cardNumber: "",
-            expiryDate: "",
-            cvc: "",
             quantity: 1,
             notes: "",
           })
         }, 3000)
-      } else {
-        console.error("Payment failed")
       }
     } catch (error) {
-      console.error("Error processing payment:", error)
+      console.error("Payment error:", error)
+      setPaymentError(
+        error instanceof Error ? error.message : "An error occurred during payment"
+      )
     } finally {
       setIsProcessing(false)
     }
@@ -125,7 +180,7 @@ export default function PaymentFormBack({
           <button
             onClick={onBack}
             className="p-2 hover:bg-primary/10 rounded-lg transition-colors"
-            aria-label="Go back"
+            aria-label="Go back to contact form"
           >
             <ChevronLeft className="w-5 h-5 text-primary" />
           </button>
@@ -139,8 +194,19 @@ export default function PaymentFormBack({
             className="bg-green-100 border-2 border-green-500 rounded-lg p-4 mb-6 text-center"
           >
             <p className="text-sm font-semibold text-green-700">
-              ✅ Payment successful! Booking confirmed.
+              ✅ Payment successful! Your booking is confirmed.
             </p>
+          </motion.div>
+        )}
+
+        {paymentError && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="bg-red-100 border-2 border-red-500 rounded-lg p-4 mb-6 text-center"
+          >
+            <p className="text-sm font-semibold text-red-700">{paymentError}</p>
           </motion.div>
         )}
 
@@ -174,126 +240,56 @@ export default function PaymentFormBack({
           </div>
         </div>
 
+        {/* Contact Information Display */}
+        <div className="bg-accent/5 rounded-lg p-4 mb-6">
+          <h3 className="text-sm font-medium text-foreground/70 mb-2">
+            Contact Information
+          </h3>
+          <div className="space-y-1">
+            <p className="text-sm text-foreground"><span className="font-medium">Name:</span> {contactData.name}</p>
+            <p className="text-sm text-foreground"><span className="font-medium">Email:</span> {contactData.email}</p>
+            <p className="text-sm text-foreground"><span className="font-medium">Phone:</span> {contactData.phone}</p>
+            {contactData.date && (
+              <p className="text-sm text-foreground"><span className="font-medium">Date:</span> {contactData.date}</p>
+            )}
+          </div>
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-4 flex-1">
+          {/* Stripe Card Element */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
           >
-            <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5">
-              Full Name *
+            <label className="block text-xs sm:text-sm font-medium text-foreground mb-2">
+              Card Details *
             </label>
-            <input
-              type="text"
-              name="name"
-              value={paymentData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm"
-              placeholder="Your name"
-            />
+            <div className="p-4 border border-border rounded-lg bg-background">
+              <CardElement
+                options={{
+                  style: {
+                    base: {
+                      fontSize: "14px",
+                      color: "var(--foreground)",
+                      fontFamily: '"Geist", sans-serif',
+                      "::placeholder": {
+                        color: "var(--muted-foreground)",
+                      },
+                    },
+                    invalid: {
+                      color: "#ef4444",
+                    },
+                  },
+                }}
+              />
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-          >
-            <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5">
-              Email *
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={paymentData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm"
-              placeholder="your@email.com"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-          >
-            <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5">
-              Phone *
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              value={paymentData.phone}
-              onChange={handleChange}
-              required
-              className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm"
-              placeholder="(403) 555-1234"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5">
-              Card Number *
-            </label>
-            <input
-              type="text"
-              name="cardNumber"
-              value={paymentData.cardNumber}
-              onChange={handleChange}
-              required
-              className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm placeholder-gray-400"
-              placeholder="1234 5678 9012 3456"
-              maxLength="19"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25 }}
-            className="grid grid-cols-2 gap-4"
-          >
-            <div>
-              <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5">
-                Expiry Date *
-              </label>
-              <input
-                type="text"
-                name="expiryDate"
-                value={paymentData.expiryDate}
-                onChange={handleChange}
-                required
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm"
-                placeholder="MM/YY"
-                maxLength="5"
-              />
-            </div>
-            <div>
-              <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5">
-                CVC *
-              </label>
-              <input
-                type="text"
-                name="cvc"
-                value={paymentData.cvc}
-                onChange={handleChange}
-                required
-                className="w-full px-3 sm:px-4 py-2.5 rounded-lg border border-border bg-background focus:border-primary focus:outline-none transition-colors text-sm"
-                placeholder="123"
-                maxLength="3"
-              />
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
           >
             <label className="block text-xs sm:text-sm font-medium text-foreground mb-1.5">
               Special Requests
@@ -311,12 +307,12 @@ export default function PaymentFormBack({
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
+            transition={{ delay: 0.15 }}
             className="pt-2"
           >
             <Button
               type="submit"
-              disabled={isProcessing}
+              disabled={isProcessing || !stripe}
               className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-2.5 text-sm font-semibold"
             >
               {isProcessing ? "Processing..." : `Pay $${totalPrice}`}
@@ -324,7 +320,7 @@ export default function PaymentFormBack({
           </motion.div>
 
           <p className="text-center text-xs text-foreground/70">
-            Your payment information is secure
+            Your payment information is secure and encrypted
           </p>
         </form>
       </motion.div>
