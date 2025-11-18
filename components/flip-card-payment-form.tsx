@@ -66,13 +66,39 @@ export default function PaymentFormBack({
     }
 
     setPaymentData((prev) => ({ ...prev, [name]: value }))
+    setPaymentError(null)
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleCardChange = (event: any) => {
+    if (event.error) {
+      setCardError(event.error.message)
+    } else {
+      setCardError(null)
+    }
+  }
 
+  const validateInputs = (): boolean => {
     if (!stripe || !elements) {
       setPaymentError("Payment system not ready. Please refresh and try again.")
+      return false
+    }
+
+    if (paymentData.quantity < 1) {
+      setPaymentError("Quantity must be at least 1")
+      return false
+    }
+
+    const cardElement = elements.getElement(CardElement)
+    if (!cardElement) {
+      setPaymentError("Card element not found")
+      return false
+    }
+
+    return true
+  }
+
+  const handleProcessPayment = async () => {
+    if (!validateInputs()) {
       return
     }
 
@@ -106,12 +132,12 @@ export default function PaymentFormBack({
       const { clientSecret } = await paymentIntentResponse.json()
 
       // Confirm the payment with the card element
-      const cardElement = elements.getElement(CardElement)
+      const cardElement = elements!.getElement(CardElement)
       if (!cardElement) {
         throw new Error("Card element not found")
       }
 
-      const result = await stripe.confirmCardPayment(clientSecret, {
+      const result = await stripe!.confirmCardPayment(clientSecret, {
         payment_method: {
           card: cardElement,
           billing_details: {
@@ -125,6 +151,7 @@ export default function PaymentFormBack({
       if (result.error) {
         setPaymentError(result.error.message || "Payment failed. Please try again.")
         setIsProcessing(false)
+        setShowConfirmation(false)
         return
       }
 
@@ -150,6 +177,7 @@ export default function PaymentFormBack({
 
         setTimeout(() => {
           setPaymentSuccess(false)
+          setShowConfirmation(false)
           onBack()
           setPaymentData({
             quantity: 1,
@@ -165,6 +193,11 @@ export default function PaymentFormBack({
     } finally {
       setIsProcessing(false)
     }
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setShowConfirmation(true)
   }
 
   return (
