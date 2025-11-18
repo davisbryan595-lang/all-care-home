@@ -2,10 +2,10 @@
 
 import type React from "react"
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import { ChevronLeft } from "lucide-react"
+import { ChevronLeft, Check, AlertCircle, Loader2, Lock } from "lucide-react"
 
 interface ServiceOption {
   value: string
@@ -48,6 +48,8 @@ export default function PaymentFormBack({
   const [isProcessing, setIsProcessing] = useState(false)
   const [paymentSuccess, setPaymentSuccess] = useState(false)
   const [paymentError, setPaymentError] = useState<string | null>(null)
+  const [cardError, setCardError] = useState<string | null>(null)
+  const [showConfirmation, setShowConfirmation] = useState(false)
 
   const selectedServiceLabel =
     serviceOptions.find((s) => s.value === selectedService)?.label || ""
